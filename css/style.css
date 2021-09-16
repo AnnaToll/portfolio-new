@@ -1,6 +1,7 @@
 /* --------------- GENERAL SETTINGS --------------- */
 :root {
     --timeline: rgb(83, 83, 83);
+    --bullet-size: 8px;
 }
 
 * {
@@ -183,7 +184,6 @@ nav ul li a {
 
 
 aside {
-    /* background-color: yellow; */
     grid-area: sidebar;
     padding: 3.4vh 2.2vw 3.4vh 2.4vw;
 }
@@ -200,33 +200,35 @@ aside {
 
 #container-merits {
     /* background-color: rgb(231, 231, 231); */
-    display: grid;
+    display: flex;
+    flex-direction: column;
     position: relative;
     top: -3vh;
     border-left: 1px solid var(--timeline);
-    grid-template: auto / 8px auto;
-    column-gap: 35px;
+    row-gap: 6vh;
     padding: 5vh 0;
 }
 
+#container-merits > div {
+    position: relative;
+    display: flex;
+    left: calc(var(--bullet-size) / -2);
+    column-gap: 2.4vw;
+}
+
+
 .bullet {
     position: relative;
-    left: -4.5px;
-    top: 4px;
+    top: 3px;
     background-color: var(--timeline);
-    width: 8px;
-    height: 8px;
     border-radius: 50%;
+    height: var(--bullet-size);
+    flex: 0 0 var(--bullet-size);
 }
 
 aside p {
     font-size: 11px;
     color: grey;
-    margin-bottom: 6.8vh;
-}
-
-aside a:last-of-type p {
-    margin-bottom: 0;
 }
 
 #sidebar-container > div:first-of-type {
