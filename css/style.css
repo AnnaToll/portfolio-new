@@ -1,5 +1,7 @@
 /* --------------- GENERAL SETTINGS --------------- */
-
+:root {
+    --timeline: rgb(83, 83, 83);
+}
 
 * {
     box-sizing: border-box;
@@ -7,7 +9,7 @@
     padding: 0;
 }
 
-body, a, li {
+body, a, li  {
     font-family: 'Roboto Mono', monospace;
     font-size: 12px;
     color: rgb(32, 32, 32);
@@ -35,7 +37,7 @@ h1 {
 h5 {
     font-family: 'Assistant', sans-serif;
     font-size: 12.5px;
-    margin-bottom: 10px;
+    margin-bottom: 1vh;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2.2px;
@@ -109,51 +111,33 @@ nav ul li a {
 .main-home {
     display: grid;
     place-content: center;
-    /* background-color: red; */
+    background-color: red;
     background-image: url("../img/white_wall.png");
     padding: 35px;
 }
 
 
 .main-home > div {
-    position: relative;
-    top: -2vh;
     max-width: 510px;
-}
-.main-home > div > * {
-    position: relative;
-    /* z-index: 2; */
-}
+    top: -3vh;
 
-.main-home h1 {
+}
+.main-home * {
+    position: relative;
     
 }
 
-.main-home > div > .color-box {
+.color-box {
     background-color: rgba(255, 155, 142, 0.5);
     position: absolute;
-    top: -30%;
-    bottom: 0;
-    left: 50%;
-    right: -10%;
-    /* z-index: 1; */
+    top: -74px;
+    bottom: 5px;
+    left: 58%;
+    right: -13%;
 }
 
-/* .contact-btn {
-    display: inline-grid;
-    place-content: center;
-    font-family: 'Assistant', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-top: 2.3vh;
-    border-right: 1.7px solid black;
-    border-left: 1.7px solid black;
-    padding: 0 0.8em;
-} */
-
 .contact-btn {
+    display: inline-block;
     place-content: center;
     font-family: 'Assistant', sans-serif;
     font-size: 16px;
@@ -163,6 +147,11 @@ nav ul li a {
     margin-top: 2.1vh;
 }
 
+.bi-arrow-right-short  {
+    position: relative;
+    top: 3px;
+    font-size: 22px;
+}
 
 /* --------------- BTN SCROLL DOWN --------------- */
 
@@ -174,12 +163,8 @@ nav ul li a {
     left: 2.5vw;
     width: 60px;
     height: 60px;
-    font-size: 23px;
-    color: white;
-    font-weight: 300;
-    background-image: linear-gradient(-30deg, #623AA2, #F97794);
-    background-color: rgb(91, 194, 189);
-    border-radius: 50%;
+    font-size: 48px;
+    color: rgb(78, 78, 78);
     animation-name: bouncing-arrow;
     animation-duration: 750ms;
     animation-iteration-count: infinite;
@@ -189,7 +174,7 @@ nav ul li a {
     0%   
     {bottom: 4vh;}
     50%
-    {bottom: 4.5vh;}
+    {bottom: 4.4vh;}
     100% {bottom: 4vh;}
   }
 
@@ -204,44 +189,101 @@ aside {
 }
 
 #sidebar-container {
+    display: flex;
     position: sticky;
     top: 3.4vh;
-    display: grid;
-    grid-template: 15vh 62.5vh 15vh / auto;
-    /* background-color: royalblue; */
-    max-height: 100vh;
-    justify-items: end;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 92.5vh;
 }
 
 #container-merits {
     /* background-color: rgb(231, 231, 231); */
-    border-left: 1px solid black;
     display: grid;
-    grid-template: repeat(3, 1fr) / 8px auto;
+    position: relative;
+    top: -3vh;
+    border-left: 1px solid var(--timeline);
+    grid-template: auto / 8px auto;
     column-gap: 35px;
-    padding: 5vh 0 5vh 0;
+    padding: 5vh 0;
 }
 
 .bullet {
     position: relative;
     left: -4.5px;
     top: 4px;
-    background-color: black;
+    background-color: var(--timeline);
     width: 8px;
     height: 8px;
     border-radius: 50%;
 }
 
-#sidebar-container > a {
-    position: absolute;
-    bottom: 0;
+aside p {
+    font-size: 11px;
+    color: grey;
+    margin-bottom: 6.8vh;
+}
+
+aside a:last-of-type p {
+    margin-bottom: 0;
+}
+
+#sidebar-container > div:first-of-type {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bi-x {
+    font-size: 19px;
+    color: rgb(255, 255, 255);
+    /* transform: rotate(45deg); */
+}
+
+.bi-chevron-double-right {
+    font-size: 22px;
+    color: rgb(175, 175, 175);
+}
+
+/* .circle {
+    display: grid;
+    place-items: center;
+    position: relative;
+    left:  calc(-2.4vw + -25px);
+    top: 0.5vh;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: white;
+} */
+
+.circle {
+    display: grid;
+    place-items: center;
+    height: 27px;
+    width: 27px;
+    /* border-radius: 50%; */
+    background-color: rgb(214, 214, 214);
+    /* transform: rotate(45deg); */
+    
+}
+
+.circle:hover {
+    transform: rotate(225deg);
+    transition: transform 800ms;
+}
+
+.circle:hover .bi-x {
+    transform: rotate(45deg);
 }
 
 
 /* --------------- PORTFOLIO --------------- */
 
 
-.main-portfolio {
+#main-portfolio {
     background-color: green;
     grid-area: main-portfolio;
 }
