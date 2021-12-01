@@ -18,7 +18,7 @@
     <!-- --------------- HEADER --------------- -->
 
     <header>
-        <a href="#" onclick="minfunktion()">
+        <a href="#">
             <img src="img/logo.png" alt="handwritten logotype with the text Anna T">
         </a>
         <nav>
@@ -38,40 +38,54 @@
             </ul>
         </nav>
     </header>
+
+    <!-- --------------- BTN SCROLL DOWN --------------- -->
+    
+    <a id="btn-scroll-down" href="#main-portfolio">
+        <i class="bi bi-arrow-down-circle-fill"></i>
+    </a>
+    
+    <!-- --------------- MAIN CONTAINER --------------- -->
+
     <div class="container-all">
-
-        <!-- --------------- MAIN --------------- -->
-
-        <main class="main-home">
-            <div>
-                <div class="color-box"></div>
-                <h1>Annas Portfolio</h1>
-                <p class="text-intro">Lorem,
+        <main id="main">
+            
+            <!-- --------------- MAIN --------------- -->
+            
+            <div id="home">
+                <div>
+                    <div class="color-box"></div>
+                    <h1>Annas Portfolio</h1>
+                    <p>Lorem,
                         ipsum dolor sit amet consectetur adipisicing elit. Amet doloremque in nihil voluptatem nesciunt quasi magni aut, consequuntur similique est quae eveniet! Architecto veniam numquam ab in excepturi odit incidunt. Ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <a href="#" class="contact-btn">
-                    Kontakt <i class="bi bi-arrow-right-short"></i>
-                </a>
+                    <a href="#" class="contact-btn">
+                        Kontakt 
+                        <i class="bi bi-arrow-right-short"></i>
+                    </a>                                    
+                </div>
                 
             </div>
-        </main>
+            
+            <!-- --------------- PORTFOLIO --------------- -->
+                                
+            <div id="main-portfolio">
+                whoop
+                <i class="bi-alarm"></i>
+            </div>
 
-        <!-- --------------- BTN SCROLL DOWN --------------- -->
-
-        <a id="btn-scroll-down" href="#main-portfolio">
-            <i class="bi bi-arrow-down-circle-fill"></i>
-        </a>
-
+        </main>                
+                            
         <!-- --------------- SIDEBAR --------------- -->
 
-        <aside>
+        <aside onclick="openCloseSidebar()">
             <div id="sidebar-container">
                 <div>
-                    <section>
-                        <a href="#">SV</a> / <a href="#">EN</a>
-                    </section>
                     <div class="circle">
                         <i class="bi bi-x"></i>
                     </div>
+                    <section>
+                        <a href="#">SV</a> / <a href="#">EN</a>
+                    </section>
                 </div>
                 <div id="container-merits">
                     <div>
@@ -104,25 +118,11 @@
                 </a>
             </div>
         </aside>
-        <main id="main-portfolio">
-            whoop
-            <i class="bi-alarm"></i>
-        </main>
+
+        <div id="hidden-nav"></div>
+
     </div>
-
-     <!-- --------------- JAVASCRIPT --------------- -->
-
-    <script>
-    function minfunktion() {
-        var className = document.body.getAttribute("class");
-        if(className == "menyoppen") {
-            document.body.className = "menystangd";
-        }
-        else{
-            document.body.className = "menyoppen";
-        }
-      }
-    </script>
+    <script src="js/main.js"> </script>
 
 </body>
 </html>

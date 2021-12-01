@@ -10,6 +10,10 @@
     padding: 0;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 body, a, li  {
     font-family: 'Roboto Mono', monospace;
     font-size: 12px;
@@ -73,16 +77,13 @@ a:hover p {
 
 /* --------------- REST OF PAGE --------------- */
 
-
 .container-all {
-    display: grid;
-    grid-template: 100vh minmax(100vh, auto) / minmax(300px, auto) minmax(180px, 16.5vw);
-    grid-template-areas: 
-    "main-home sidebar"
-    "main-portfolio sidebar"; 
-    z-index: -2;
+    display: flex;
+    justify-content: flex-end;
+    min-width: calc(100vw + 254px);
+    max-width: calc(100vw + 254px);
+    
 }
-
 
 /* --------------- HEADER --------------- */
 
@@ -108,36 +109,45 @@ nav ul li a {
 
 /* --------------- MAIN --------------- */
 
-
-.main-home {
+main {
+    flex: 1 7 1000px;
+}
+ 
+#home {
     display: grid;
-    place-content: center;
-    background-color: red;
+    height: 100vh;
     background-image: url("../img/white_wall.png");
-    padding: 35px;
+    place-items: center;
 }
 
+#home > div {
+    position: relative;
+    max-width: 510px;
+    margin-right: 30px;
+}
 
-.main-home > div {
+#home > div {
+    position: relative;
     max-width: 510px;
     top: -3vh;
-
+    margin-right: 30px;
 }
-.main-home * {
+
+#home > div * {
     position: relative;
-    
 }
 
-.color-box {
+#home .color-box {
     background-color: rgba(255, 155, 142, 0.5);
     position: absolute;
     top: -74px;
     bottom: 5px;
     left: 58%;
     right: -13%;
+    
 }
 
-.contact-btn {
+#home .contact-btn {
     display: inline-block;
     place-content: center;
     font-family: 'Assistant', sans-serif;
@@ -184,9 +194,20 @@ nav ul li a {
 
 
 aside {
-    grid-area: sidebar;
-    padding: 3.4vh 2.2vw 3.4vh 2.4vw;
+    flex: 0 3 calc(262px * 2);
+    padding: 3.4vh 300px 3.4vh calc(20px + 1vw);
+    justify-self: flex-end;
+    opacity: 1;
+    transition: flex 350ms linear, padding 350ms linear, opacity 100ms linear 320ms;
 }
+
+.menyoppen aside {
+    flex: 0 0 calc(254px + 30px);
+    padding: 3.4vh 0 3.4vh calc(20px + 1vw);
+    opacity: 0;
+    transition: flex 400ms linear, padding 400ms linear, opacity 150ms linear;
+}
+
 
 #sidebar-container {
     display: flex;
@@ -196,6 +217,7 @@ aside {
     justify-content: space-between;
     align-items: flex-end;
     height: 92.5vh;
+
 }
 
 #container-merits {
@@ -213,7 +235,7 @@ aside {
     position: relative;
     display: flex;
     left: calc(var(--bullet-size) / -2);
-    column-gap: 2.4vw;
+    column-gap: calc(17px + 1.3vw);
 }
 
 
@@ -287,10 +309,12 @@ aside p {
 
 #main-portfolio {
     background-color: green;
-    grid-area: main-portfolio;
+    min-height: 100vh;
 }
 
 .bi-alarm {
     color: blueviolet;
     font-size: 28px;
 }
+
+
