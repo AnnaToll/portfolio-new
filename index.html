@@ -12,8 +12,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+
+    <div id="darken-background-fullwidth"></div>
 
     <!-- --------------- HEADER --------------- -->
 
@@ -42,7 +45,7 @@
     <!-- --------------- BTN SCROLL DOWN --------------- -->
     
     <a id="btn-scroll-down" href="#main-portfolio">
-        <i class="bi bi-arrow-down-circle-fill"></i>
+        <i class="bi bi-arrow-down-short"></i>
     </a>
     
     <!-- --------------- MAIN CONTAINER --------------- -->
@@ -52,16 +55,10 @@
             
             <!-- --------------- MAIN --------------- -->
             
-            <div id="home">
+            <div id="main-home-container">
                 <div>
-                    <div class="color-box"></div>
                     <h1>Annas Portfolio</h1>
-                    <p>Lorem,
-                        ipsum dolor sit amet consectetur adipisicing elit. Amet doloremque in nihil voluptatem nesciunt quasi magni aut, consequuntur similique est quae eveniet! Architecto veniam numquam ab in excepturi odit incidunt. Ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <a href="#" class="contact-btn">
-                        Kontakt 
-                        <i class="bi bi-arrow-right-short"></i>
-                    </a>                                    
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet doloremque in nihil voluptatem nesciunt quasi magni aut, consequuntur similique est quae eveniet! Architecto veniam numquam ab in excepturi odit incidunt. Ipsum dolor sit amet consectetur adipisicing elit.</p>                                   
                 </div>
                 
             </div>
@@ -69,8 +66,69 @@
             <!-- --------------- PORTFOLIO --------------- -->
                                 
             <div id="main-portfolio">
-                whoop
-                <i class="bi-alarm"></i>
+                <section class="portfolio-objects-container">
+                    <section class="square-img-container">
+                        <div>
+                            <img src="img/fashion.png" alt="random">
+                        </div>
+                    </section>
+                    <section class="square-img-container">
+                        <div>
+                            <img src="img/art-search-2.png" alt="random">
+                        </div>
+                    </section>
+                    <section class="square-img-container">
+                        <div>
+                            <img src="img/Lista.png" alt="random">
+                        </div>
+                    </section>
+                    <section class="square-img-container">
+                        <div>
+                            <img src="img/BAX.png" alt="random">
+                        </div>
+                    </section>
+                    <section class="square-img-container">
+                        <div>
+                            <img src="img/Portfolio_Anna_Toll3.jpg" alt="random">
+                        </div>
+                    </section>
+                    <section class="square-img-container">
+                        <div>
+                            <img src="img/advanced-summer-dance.jpg" alt="random">
+                        </div>
+                    </section>
+                    <section class="square-img-container">
+                        <div>
+                            <img src="img/Portfolio_Anna_Toll6.jpg" alt="random">
+                        </div>
+                    </section>
+                    <section class="square-img-container">
+                        <div>
+                            <img src="img/Portfolio_Anna_Toll9.jpg" alt="random">
+                        </div>
+                    </section>
+                    <section class="square-img-container">
+                        <div>
+                            <img src="img/provdans.jpg" alt="random">
+                        </div>
+                    </section>
+                    <section class="square-img-container">
+                        <div>
+                            <img src="img/ppe.jpg" alt="random">
+                        </div>
+                    </section>
+                    <section class="square-img-container">
+                        <div>
+                            <img src="img/Lista.png" alt="random">
+                        </div>
+                    </section>
+                    <section class="square-img-container">
+                        <div>
+                            <img src="img/vattenflaskor.jpg" alt="random">
+                        </div>
+                    </section>
+                </section>
+
             </div>
 
         </main>                
@@ -79,17 +137,12 @@
 
         <aside onclick="openCloseSidebar()">
             <div id="sidebar-container">
-                <div>
-                    <div class="circle">
-                        <i class="bi bi-x"></i>
-                    </div>
-                    <section>
-                        <a href="#">SV</a> / <a href="#">EN</a>
-                    </section>
-                </div>
+                <a href="#">
+                    <i class="bi bi-chevron-bar-right"></i> CV
+                </a>
                 <div id="container-merits">
                     <div>
-                        <div class="bullet"></div>
+                        <div class="bullet"></div><div class="plus">+</div>
                         <a href="#" class="wrapper-merits-items">
                             <h5>Utbildning</h5>
                             <p>Grafisk formgivare &
@@ -97,7 +150,7 @@
                         </a>
                     </div>
                     <div>
-                        <div class="bullet"></div>
+                        <div class="bullet"></div><div class="plus">+</div>
                         <a href="#" class="wrapper-merits-items">
                             <h5>Arbete</h5>
                             <p>AD-assistent,
@@ -106,7 +159,7 @@
                         </a>                        
                     </div>
                     <div>
-                        <div class="bullet"></div>
+                        <div class="bullet"></div><div class="plus">+</div>
                         <a href="#" class="wrapper-merits-items">
                             <h5>Just nu</h5>
                             <p>Utbildar mig till Front-end utvecklare & arbetar som grafisk formgivare / webbdesigner.</p>
