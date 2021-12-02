@@ -239,6 +239,13 @@ aside {
     display: flex;
     left: -5.5px;
     column-gap: calc(15px + 1.2vw);
+    cursor: pointer;
+}
+
+#container-merits > div:hover h5,
+#container-merits > div:hover p {
+    font-weight: bolder;
+    color: rgb(78, 78, 78);
 }
 
 
@@ -253,7 +260,6 @@ aside {
     transition-duration: 300ms;
     transition-timing-function: ease-in;
     transition-property: border, transform;
-    cursor: pointer;
 }
 
 #container-merits > div:hover .bullet {
@@ -271,7 +277,6 @@ aside {
     color: white;
     transform: scale(0);
     transition-duration: 350ms;
-    cursor: pointer;
 }
 
 #container-merits > div:hover .plus {
