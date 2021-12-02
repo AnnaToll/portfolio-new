@@ -4,38 +4,39 @@ let meritsArr = document.querySelectorAll('#container-merits > div');
 
 for (let merit of meritsArr) {
     let hiddenElements = document.getElementById('hidden-elements-container');
-    merit.addEventListener('click', () => {
+    merit.addEventListener('click', (e) => {
+        e.preventDefault();
+        merit.classList.add('merits-mouseover');
         for (let element of hiddenElements.children) {
-            console.log(element.firstElementChild.innerText.toLowerCase().trim());
             if (merit.children[2].firstElementChild.innerText.toLowerCase().trim() == element.firstElementChild.innerText.toLowerCase().trim()) {
                 darkBackgroundDiv.innerHTML = `
                     <div class="merits-popup-container">
                         ${element.innerHTML}
                     </div>
                 `;
-                $("#darken-background-fullwidth").fadeIn(350); 
+                $("#darken-background-fullwidth").fadeIn(300); 
                 darkBackgroundDiv.style.display = 'grid';
             }
         }
+    })
+    merit.addEventListener('mouseover', () => {
+        merit.classList.add('merits-mouseover');
+        merit.addEventListener('mouseout', () => {
+            if (darkBackgroundDiv.style.display != 'grid') {
+                merit.classList.remove('merits-mouseover');
+            }
+        })
 
+    })
+    darkBackgroundDiv.addEventListener('click', () => {
+        $("#darken-background-fullwidth").fadeOut(300);
+        merit.classList.remove('merits-mouseover');
     })
 }
 
-darkBackgroundDiv.addEventListener('click', () => {
+/* darkBackgroundDiv.addEventListener('click', () => {
     $("#darken-background-fullwidth").fadeOut(300); 
-})
-
-
-
-nav.addEventListener('click', darkenBackground);
-
-function darkenBackground() {
-    if (darkBackgroundDiv.style.display == 'block') {
-        $("#darken-background-fullwidth").fadeOut(500);   
-    } else {
-        $("#darken-background-fullwidth").fadeIn(500); 
-    }
-}
+}) */
 
 function openCloseSidebar() {
     let className = document.body.getAttribute("class");
@@ -46,3 +47,16 @@ function openCloseSidebar() {
         document.body.className = "menyoppen";
     }
   }
+
+
+window.onscroll = () => {
+    let homeText = document.querySelector('#main-home-container > div > p');
+    let homeTextToTop = homeText.getBoundingClientRect().top + window.scrollY;
+
+    if (window.scrollY > homeTextToTop) {
+        document.body.classList.add('scrolled-down');
+
+    } else {
+        document.body.classList.remove('scrolled-down');
+    }
+};

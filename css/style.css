@@ -36,9 +36,6 @@ img {
     max-width: 100%;
 }
 
-/* [class*="test"] {
-
-} */
 
 /* --------------- HEADLINES, PARAGRAPHS, LINKS --------------- */
 
@@ -102,7 +99,7 @@ a:hover p {
     background-color: rgba(0, 0, 0, 0.4);
     height: 100vh;
     width: 100vw;
-    z-index: 1;
+    z-index: 10;
 }
 
 #hidden-elements-container {
@@ -129,6 +126,11 @@ nav ul li a {
     height: 29.5px;
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+.selected {
+    font-weight: bolder;
+    color: rgb(78, 78, 78);
 }
 
 
@@ -176,13 +178,33 @@ main {
     left: 2.5vw;
     width: 60px;
     height: 60px;
-    font-size: 48px;
-    background-image: linear-gradient(-30deg, #623AA2, #F97794);
-    background-color: rgb(91, 194, 189);
+    font-size: 42px;
+    /* background-image: linear-gradient(-30deg, #623AA2, #F97794); */
+    background-color: rgb(140, 173, 153);
     border-radius: 50%;
     animation-name: bouncing-arrow;
     animation-duration: 750ms;
     animation-iteration-count: infinite;
+    transition: background-image 300ms;
+    z-index: 1;
+}
+
+#btn-scroll-down > div {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: linear-gradient(-30deg, #623AA2, #F97794);
+    opacity: 1;
+    transition: opacity 400ms;
+    z-index: 2;
+
+}
+
+.bi-arrow-down-short {
+    position: relative;
+    z-index: 3;
 }
 
 @keyframes bouncing-arrow {
@@ -192,6 +214,15 @@ main {
     {bottom: 4.4vh;}
     100% {bottom: 4vh;}
   }
+
+  .scrolled-down #btn-scroll-down > div {
+      opacity: 0;
+      transition: opacity 400ms;
+  }
+
+  .scrolled-down #btn-scroll-down .bi-arrow-down-short::before {
+    content: "\f145";
+}
 
 
   /* --------------- SIDEBAR --------------- */
@@ -242,12 +273,11 @@ aside {
     cursor: pointer;
 }
 
-#container-merits > div:hover h5,
-#container-merits > div:hover p {
+.merits-mouseover h5,
+.merits-mouseover p {
     font-weight: bolder;
     color: rgb(78, 78, 78);
 }
-
 
 .bullet {
     position: relative;
@@ -262,10 +292,9 @@ aside {
     transition-property: border, transform;
 }
 
-#container-merits > div:hover .bullet {
+.merits-mouseover .bullet {
     border: 1px solid var(--timeline);
     transform: scale(2.8 );
-
 }
 
 .plus {
@@ -279,7 +308,7 @@ aside {
     transition-duration: 350ms;
 }
 
-#container-merits > div:hover .plus {
+.merits-mouseover .plus {
     transform: scale(1);
     color: rgb(68, 68, 68);
 }
