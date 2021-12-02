@@ -55,6 +55,10 @@ h2 {
     font-weight: 700;
 }
 
+h3 {
+    margin-bottom: 3vh;
+}
+
 h5 {
     font-family: 'Assistant', sans-serif;
     font-size: 12.5px;
@@ -94,10 +98,15 @@ a:hover p {
     display: none;
     position: fixed;
     top: 0;
+    place-content: center;
     background-color: rgba(0, 0, 0, 0.4);
     height: 100vh;
     width: 100vw;
     z-index: 1;
+}
+
+#hidden-elements-container {
+    display: none;
 }
 
 /* --------------- HEADER --------------- */
@@ -244,6 +253,7 @@ aside {
     transition-duration: 300ms;
     transition-timing-function: ease-in;
     transition-property: border, transform;
+    cursor: pointer;
 }
 
 #container-merits > div:hover .bullet {
@@ -261,6 +271,7 @@ aside {
     color: white;
     transform: scale(0);
     transition-duration: 350ms;
+    cursor: pointer;
 }
 
 #container-merits > div:hover .plus {
@@ -275,18 +286,26 @@ aside p {
     line-height: 15px;
 }
 
-#sidebar-container > div:first-of-type {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
+#sidebar-container > p {
+    font-size: 10.8px;
+    text-align: center;
+    color: grey;
+}
+
+.merits-popup-container {
+    position: relative;
+    background-color: white;
+    width: 40vw;
+    padding: 10vh 5vw;
+    top: -4vh;
 }
 
 /* --------------- PORTFOLIO --------------- */
 
 
 #main-portfolio {
-    background-color: rgb(178, 209, 178);
+    /* background-color: rgb(178, 209, 178); */
+    background-color: rgb(185, 212, 185);
     min-height: 100vh;
 }
 
@@ -295,18 +314,18 @@ aside p {
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: center;
-    padding: 13vh 10vw;
+    padding: 13vh 10.5vw;
     row-gap: 5.5vh;
     min-height: 100vh;
 }
 
 .square-img-container {
-    width: 23%;
+    width: 22%;
 }
 
 .square-img-container > div {
     position: relative;
-    padding-top: 70%;
+    padding-top: 72%;
 }
 
 .square-img-container img {
@@ -316,8 +335,7 @@ aside p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* object-position: left top; */
-    border: 7px solid white;
+    border: 7px solid rgb(250, 250, 250);
 }
 
 
