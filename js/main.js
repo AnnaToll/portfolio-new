@@ -52,11 +52,14 @@ function openCloseSidebar() {
 window.onscroll = () => {
     let homeText = document.querySelector('#main-home-container > div > p');
     let homeTextToTop = homeText.getBoundingClientRect().top + window.scrollY;
+    let scrollDownBtn = document.getElementById('btn-scroll-down');
 
     if (window.scrollY > homeTextToTop) {
         document.body.classList.add('scrolled-down');
+        scrollDownBtn.href = '#main-home-container';
 
     } else {
         document.body.classList.remove('scrolled-down');
+        scrollDownBtn.href = '#main-portfolio';
     }
 };
