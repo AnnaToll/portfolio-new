@@ -1,5 +1,9 @@
 /* --------------- GENERAL SETTINGS --------------- */
 
+html {
+    scroll-behavior: smooth;
+  }
+
 :root {
     --timeline: #cecccc;
     --bullet-size: 9px;
@@ -22,6 +26,7 @@
 
 body {
     overflow-x: hidden;
+    width: 100%;
 }
 
 body, a, li  {
@@ -252,10 +257,43 @@ aside {
     justify-content: space-between;
     align-items: flex-end;
     height: 92.5vh;
+}
 
+#close-cv-btn {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: rgb(153, 153, 153);
+    font-weight: 300;
+    font-size: 11.5px;
+    cursor: pointer;
+}
+
+#close-cv-btn .bi {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    color: rgb(197, 197, 197);
+    font-style: normal;
+}
+
+#headline-merits {
+    /* display: none; */
+    position: absolute;
+    top: 41px;
+    right: -35px;
+    background-color: white;
+    padding: 1em 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: rgb(153, 153, 153);
+    font-weight: 300;
+    font-size: 11.5px;
+    transform: rotate(90deg);
 }
 
 #container-merits {
+    position: relative;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -272,6 +310,7 @@ aside {
     column-gap: calc(15px + 1.2vw);
     cursor: pointer;
 }
+
 
 .merits-mouseover h5,
 .merits-mouseover p {
