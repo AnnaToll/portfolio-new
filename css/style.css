@@ -244,7 +244,7 @@ aside {
     padding: 3.4vh calc(20px + 1vw);
     justify-self: flex-end;
     opacity: 1;
-    transition: flex 350ms linear, padding 350ms linear, opacity 100ms linear 320ms;
+    /* transition: opacity 100ms linear 320ms; */
     background-color: violet;
 }
 
@@ -257,8 +257,7 @@ aside {
     right: -500px;
     padding: 0;
     opacity: 0;
-    -ms-transform-origin-x: ;
-    transition: flex 400ms linear, padding 400ms linear, opacity 150ms linear;
+    /* transition: opacity 100ms linear 320ms, position 400ms; */
 
 }
 
