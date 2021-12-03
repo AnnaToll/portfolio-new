@@ -26,7 +26,6 @@ html {
 
 body {
     overflow-x: hidden;
-    width: 100%;
 }
 
 body, a, li  {
@@ -92,8 +91,9 @@ a:hover p {
 .container-all {
     display: flex;
     justify-content: flex-end;
-    min-width: calc(100vw + 254px);
-    max-width: calc(100vw + 254px);
+    width: 100vw;
+/*     min-width: calc(100vw + 254px);
+    max-width: calc(100vw + 254px); */
 }
 
 #darken-background-fullwidth {
@@ -232,21 +232,36 @@ main {
 
   /* --------------- SIDEBAR --------------- */
 
+#white-div {
+    flex: 0 3 254px;
+    transition: flex 350ms linear;
+}
 
 aside {
-    flex: 0 3 calc(262px * 2);
-    padding: 3.4vh 300px 3.4vh calc(20px + 1vw);
+    position: fixed;
+    top: 0;
+    right: auto;
+    padding: 3.4vh calc(20px + 1vw);
     justify-self: flex-end;
     opacity: 1;
     transition: flex 350ms linear, padding 350ms linear, opacity 100ms linear 320ms;
+    background-color: violet;
 }
 
-.menyoppen aside {
-    flex: 0 0 calc(254px + 30px);
-    padding: 3.4vh 0 3.4vh calc(20px + 1vw);
-    opacity: 0;
-    transition: flex 400ms linear, padding 400ms linear, opacity 150ms linear;
+.menystangd #white-div {
+    flex: 0 0 10px;
+    transition: flex 350ms linear;
 }
+
+.menystangd aside {
+    right: -500px;
+    padding: 0;
+    opacity: 0;
+    -ms-transform-origin-x: ;
+    transition: flex 400ms linear, padding 400ms linear, opacity 150ms linear;
+
+}
+
 
 
 #sidebar-container {
