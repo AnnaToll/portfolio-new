@@ -37,16 +37,47 @@ for (let merit of meritsArr) {
 /* darkBackgroundDiv.addEventListener('click', () => {
     $("#darken-background-fullwidth").fadeOut(300); 
 }) */
-
-function openCloseSidebar() {
+/* let logo = document.querySelector('header > a');
+logo.addEventListener('click', (e) => {
+    e.preventDefault();
     let className = document.body.getAttribute("class");
-    if(className == "menyoppen") {
-        document.body.className = "menystangd";
+    if(className == "menystangd") {
+        document.body.className = "menyoppen";
+
+        setTimeout(function() { 
+            alert("Hello"); 
+        }, 300);
     }
     else {
+        document.body.className = "menystangd";
+    }
+  }) */
+
+let logo = document.querySelector('header > a');
+logo.addEventListener('click', () => {
+    let className = document.body.getAttribute("class");
+    if(className == "menystangd") {
         document.body.className = "menyoppen";
     }
-  }
+    else {
+        document.body.className = "menystangd";
+    }
+  })
+
+/* let logo = document.querySelector('header > a');
+console.log(logo);
+logo.addEventListener('click', () => {
+    let sidebar = document.querySelector('aside');
+    console.log(sidebar)
+    // $("aside").hide('slide', {direction: 'right'}, 1000);
+    $("aside").animate({right: '250px'});
+}) */
+
+
+function openCloseSidebar() {
+    let sidebar = document.querySelector('aside');
+    console.log(sidebar);
+}
 
 
 window.onscroll = () => {
