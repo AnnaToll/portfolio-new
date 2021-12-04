@@ -233,6 +233,7 @@ main {
   /* --------------- SIDEBAR --------------- */
 
 #white-div {
+    position: relative;
     flex: 0 3 254px;
     transition: flex 350ms linear;
 }
@@ -240,12 +241,10 @@ main {
 aside {
     position: fixed;
     top: 0;
-    right: auto;
+    /* right: auto; */
     padding: 3.4vh calc(20px + 1vw);
     justify-self: flex-end;
-    opacity: 1;
-    /* transition: opacity 100ms linear 320ms; */
-    background-color: violet;
+    transition: transform 350ms linear, width 350ms linear;
 }
 
 .menystangd #white-div {
@@ -253,15 +252,13 @@ aside {
     transition: flex 350ms linear;
 }
 
-.menystangd aside {
-    right: -500px;
-    padding: 0;
-    opacity: 0;
-    /* transition: opacity 100ms linear 320ms, position 400ms; */
-
+.menystangd #close-cv-btn {
+    background-color: white;
 }
 
-
+.menystangd #phone-number-aside-vertical {
+    display: block;
+}
 
 #sidebar-container {
     display: flex;
@@ -274,13 +271,17 @@ aside {
 }
 
 #close-cv-btn {
-    position: relative;
+    position: fixed;
+    right: 0;
+    padding: 1.55em 1.2em;
+    height: 100vh;
     text-transform: uppercase;
     letter-spacing: 0.7px;
     color: rgb(153, 153, 153);
     font-weight: 300;
     font-size: 11.5px;
     cursor: pointer;
+    z-index: 2;
 }
 
 #close-cv-btn .bi {
@@ -292,18 +293,27 @@ aside {
 }
 
 #headline-merits {
-    /* display: none; */
     position: absolute;
-    top: 41px;
-    right: -35px;
-    background-color: white;
-    padding: 1em 1.5em;
+    top: 45px;
+    right: -19px;
     text-transform: uppercase;
     letter-spacing: 0.7px;
     color: rgb(153, 153, 153);
     font-weight: 300;
     font-size: 11.5px;
     transform: rotate(90deg);
+}
+
+#phone-number-aside-vertical {
+    display: none;
+    position: absolute;
+    bottom: -73px;
+    left: -200px;
+    right: -205px;
+    transform: rotate(90deg);
+    font-size: 10.8px;
+    color: rgb(158, 158, 158);
+    font-weight: 300;
 }
 
 #container-merits {
@@ -375,7 +385,6 @@ aside p {
 
 #sidebar-container > p {
     font-size: 10.8px;
-    text-align: center;
     color: grey;
 }
 

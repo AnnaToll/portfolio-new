@@ -56,13 +56,15 @@ logo.addEventListener('click', (e) => {
 let logo = document.querySelector('header > a');
 let sidebar = document.querySelector('aside');
 
-logo.addEventListener('click', () => {
+let meritsBtn = document.getElementById('close-cv-btn');
+
+meritsBtn.addEventListener('click', () => {
     let className = document.body.getAttribute("class");
     if(className == "menystangd") {
         document.body.className = "menyoppen";
         setTimeout(function() { 
             $("aside").fadeIn(150); 
-        }, 300);
+        }, 350);
     }
     else {
         document.body.className = "menystangd";
