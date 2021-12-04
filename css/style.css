@@ -257,7 +257,9 @@ aside {
 }
 
 .menystangd #phone-number-aside-vertical {
-    display: block;
+    /* display: block; */
+    opacity: 1;
+    transition: opacity 500ms;
 }
 
 #sidebar-container {
@@ -305,7 +307,7 @@ aside {
 }
 
 #phone-number-aside-vertical {
-    display: none;
+    /* display: none; */
     position: absolute;
     bottom: -73px;
     left: -200px;
@@ -314,6 +316,8 @@ aside {
     font-size: 10.8px;
     color: rgb(158, 158, 158);
     font-weight: 300;
+    opacity: 0;
+    transition: opacity 500ms;
 }
 
 #container-merits {
