@@ -456,29 +456,9 @@ aside p {
         left: 6vmin;
     }
     
-    nav > ul {
-        display: none;
-    }
-    
-    .bi-list {
-        position: relative;
-        top: -26px;
-        display: inline;
-        color: rgb(102, 102, 102);
-        font-size: 40px;
-    }
 
     #close-cv-btn {
         width: 6vmin;
-    }
-
-    #white-div {
-        flex: 0 0 6vmin;
-        transition: flex 350ms linear;
-    }
-
-    aside {
-        display: none;
     }
 
     #btn-scroll-down {
@@ -490,7 +470,6 @@ aside p {
     }
 
     .portfolio-objects-container {
-        padding: 11vh 9vw;
         row-gap: 5vh;
     }
 
@@ -521,7 +500,6 @@ aside p {
 
     #white-div {
         flex: 0 0 7vmin;
-        transition: flex 350ms linear;
     }
 
     aside {
