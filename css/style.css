@@ -90,10 +90,8 @@ a:hover p {
 
 .container-all {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     width: 100vw;
-/*     min-width: calc(100vw + 254px);
-    max-width: calc(100vw + 254px); */
 }
 
 #darken-background-fullwidth {
@@ -119,7 +117,8 @@ header {
     top: 5vh;
     left: 3.2vw;
     display: grid;
-    grid-template: auto / minmax(90px, 7.7vw);
+    /* grid-template: auto / minmax(90px, 7.7vw); */
+    grid-template: auto / minmax(119.3px, 7.7vw);
     row-gap: 3.4vh;
     z-index: 10;
 }
@@ -178,7 +177,7 @@ main {
 
 /* --------------- BTN SCROLL DOWN --------------- */
 
-#btn-scroll-down {
+.btn-scroll-down {
     color: white;
     position: fixed;
     display: grid;
@@ -197,7 +196,7 @@ main {
     z-index: 1;
 }
 
-#btn-scroll-down > div {
+.btn-scroll-down > div {
     position: absolute;
     top: 0;
     width: 100%;
@@ -223,12 +222,12 @@ main {
     100% {bottom: 4vh;}
   }
 
-  .scrolled-down #btn-scroll-down > div {
+  .scrolled-down > div {
       opacity: 0;
       transition: opacity 400ms;
   }
 
-  .scrolled-down #btn-scroll-down .bi-arrow-down-short::before {
+  .scrolled-down .bi-arrow-down-short::before {
     content: "\f145";
 }
 
@@ -244,7 +243,6 @@ main {
 aside {
     position: fixed;
     top: 0;
-    /* right: auto; */
     padding: 3.4vh calc(20px + 1vw);
     justify-self: flex-end;
     transition: transform 350ms linear, width 350ms linear;
@@ -306,7 +304,6 @@ aside {
     font-size: 14px;
     color: rgb(197, 197, 197);
     font-style: normal;
-    vertical-align: bottom;
 }
 
 #close-cv-btn .bi-phone > p {
@@ -455,11 +452,6 @@ aside p {
     header {
         left: 6vmin;
     }
-    
-
-    #close-cv-btn {
-        width: 6vmin;
-    }
 
     #btn-scroll-down {
         left: 6vmin;
@@ -476,10 +468,68 @@ aside p {
   }
 
 
-@media screen and (max-width: 800px) {
+  @media screen and (max-width: 800px) {
+
+    #white-div {
+        flex: 0 3 280px;
+    }
+    
+    aside {
+        padding: 3.4vh 2vw 3.4vh calc(20px + 1vw);
+        transition: transform 350ms linear, width 350ms linear;
+    }
+    
+    .menystangd #white-div {
+        flex: 0 0 7vmin;
+        transition: flex 350ms linear;
+    }
+    
+    .menystangd #close-cv-btn {
+        opacity: 1;
+        background-color: white;
+    }
+    
+    .menystangd #close-cv-btn .bi-phone {
+        opacity: 1;
+        transition: opacity 500ms;
+    }
+
+    .portfolio-objects-container {
+        padding: 13vh 6vw;
+    }
+
+/*     .portfolio-objects-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: center;
+        padding: 13vh 10.5vw;
+        row-gap: 5.5vh;
+        min-height: 100vh;
+    } */
+
+    .square-img-container {
+        width: 47%;
+    }
+
+  }
+
+
+@media screen and (max-width: 550px) {
+    
+    #main-home-container > div {
+        top: 1.5vh;
+        right: -3vw;
+    }
     
     header {
         left: 7vmin;
+    }
+
+    h1 {
+        font-size: 53px;
+        line-height: 62px;
+        margin-bottom: 4vh;
     }
     
     nav > ul {
@@ -491,16 +541,16 @@ aside p {
         top: -26px;
         display: inline;
         color: rgb(102, 102, 102);
-        font-size: 40px;
+        font-size: 34px;
     }
 
-    #close-cv-btn {
-        width: 7vmin;
+  /*   #close-cv-btn {
+        width: 8vmin;
     }
 
     #white-div {
-        flex: 0 0 7vmin;
-    }
+        flex: 0 0 8vmin;
+    } */
 
     aside {
         display: none;
@@ -511,12 +561,11 @@ aside p {
     }
 
     .square-img-container {
-        width: 47%;
+        width: 100%;
     }
 
     .portfolio-objects-container {
         padding: 11vh 9vw;
-        row-gap: 4vh;
     }
 
   }

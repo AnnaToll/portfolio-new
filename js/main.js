@@ -1,6 +1,17 @@
+if (window.innerWidth <= 800) {
+    document.body.classList.add('menystangd');
+}
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth <= 800 && isSidebarClicked == 'no') {
+        document.body.classList.add('menystangd');
+    }
+})
+
 let darkBackgroundDiv = document.getElementById('darken-background-fullwidth');
 let nav = document.querySelector('header');
 let meritsArr = document.querySelectorAll('#container-merits > div');
+let isSidebarClicked = 'no';
 
 for (let merit of meritsArr) {
     let hiddenElements = document.getElementById('hidden-elements-container');
@@ -41,6 +52,24 @@ let meritsBtn = document.getElementById('close-cv-btn');
 
 meritsBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    isSidebarClicked = 'yes';
+    let className = document.body.getAttribute("class");
+    if(className == "menystangd") {
+        document.body.classList.remove('menystangd');
+        document.body.classList.add('menyoppen');
+        setTimeout(function() { 
+            $("aside").fadeIn(150); 
+        }, 350);
+    }
+    else {
+        document.body.classList.remove('menyoppen');
+        document.body.classList.add('menystangd');
+        sidebar.style.display = 'none';
+    }
+})
+
+/* meritsBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     let className = document.body.getAttribute("class");
     if(className == "menystangd") {
         document.body.className = "menyoppen";
@@ -52,8 +81,8 @@ meritsBtn.addEventListener('click', (e) => {
         document.body.className = "menystangd";
         sidebar.style.display = 'none';
     }
-  })
-  
+}) */
+
 
 function openCloseSidebar() {
     let sidebar = document.querySelector('aside');
@@ -64,14 +93,14 @@ function openCloseSidebar() {
 window.onscroll = () => {
     let homeText = document.querySelector('#main-home-container > div > p');
     let homeTextToTop = homeText.getBoundingClientRect().top + window.scrollY;
-    let scrollDownBtn = document.getElementById('btn-scroll-down');
+    let scrollDownBtn = document.querySelector('.btn-scroll-down');
 
     if (window.scrollY > homeTextToTop) {
-        document.body.classList.add('scrolled-down');
+        scrollDownBtn.classList.add('scrolled-down');
         scrollDownBtn.href = '#main-home-container';
 
     } else {
-        document.body.classList.remove('scrolled-down');
+        scrollDownBtn.classList.remove('scrolled-down');
         scrollDownBtn.href = '#main-portfolio';
     }
 };
