@@ -272,13 +272,14 @@ aside {
     position: fixed;
     top: 0;
     right: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 1.55em 0;
     width: 40px;
-    height: 100vh;
+    /* height: 100vh; */
     text-transform: uppercase;
     letter-spacing: 0.7px;
     color: rgb(153, 153, 153);
@@ -289,10 +290,17 @@ aside {
 }
 
 #close-cv-btn .bi-x-lg {
+    display: block;
     position: relative;
     font-size: 14px;
     color: rgb(197, 197, 197);
     font-style: normal;
+    transition: transform 350ms linear;
+}
+
+.menystangd #close-cv-btn .bi-x-lg {
+    transform: rotate(-45deg);
+    transition: transform 350ms linear;
 }
 
 #close-cv-btn .bi-phone {
@@ -315,8 +323,8 @@ aside {
 
 #headline-merits {
     position: absolute;
-    top: 45px;
-    right: -19px;
+    top: 65px;
+    right: -6px;
     text-transform: uppercase;
     letter-spacing: 0.7px;
     color: rgb(153, 153, 153);
