@@ -138,6 +138,10 @@ nav ul li a {
     color: rgb(78, 78, 78);
 }
 
+.bi-list {
+    display: none;
+}
+
 
 /* --------------- MAIN --------------- */
 
@@ -184,7 +188,6 @@ main {
     width: 60px;
     height: 60px;
     font-size: 42px;
-    /* background-image: linear-gradient(-30deg, #623AA2, #F97794); */
     background-color: rgb(140, 173, 153);
     border-radius: 50%;
     animation-name: bouncing-arrow;
@@ -248,7 +251,7 @@ aside {
 }
 
 .menystangd #white-div {
-    flex: 0 0 10px;
+    flex: 0 0 5vmin;
     transition: flex 350ms linear;
 }
 
@@ -256,8 +259,7 @@ aside {
     background-color: white;
 }
 
-.menystangd #phone-number-aside-vertical {
-    /* display: block; */
+.menystangd #close-cv-btn .bi-phone {
     opacity: 1;
     transition: opacity 500ms;
 }
@@ -275,7 +277,12 @@ aside {
 #close-cv-btn {
     position: fixed;
     right: 0;
-    padding: 1.55em 1.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.55em 0;
+    width: 5vmin;
     height: 100vh;
     text-transform: uppercase;
     letter-spacing: 0.7px;
@@ -286,12 +293,30 @@ aside {
     z-index: 2;
 }
 
-#close-cv-btn .bi {
+#close-cv-btn .bi-x-lg {
     position: relative;
-    display: inline-block;
     font-size: 14px;
     color: rgb(197, 197, 197);
     font-style: normal;
+}
+
+#close-cv-btn .bi-phone {
+    opacity: 0;
+    position: relative;
+    font-size: 14px;
+    color: rgb(197, 197, 197);
+    font-style: normal;
+    vertical-align: bottom;
+}
+
+#close-cv-btn .bi-phone > p {
+    position: absolute;
+    top: -60px;
+    left: -39.5px;
+    font-size: 10.8px;
+    color: rgb(177, 177, 177);
+    white-space: nowrap;
+    transform: rotate(90deg);
 }
 
 #headline-merits {
@@ -304,20 +329,6 @@ aside {
     font-weight: 300;
     font-size: 11.5px;
     transform: rotate(90deg);
-}
-
-#phone-number-aside-vertical {
-    /* display: none; */
-    position: absolute;
-    bottom: -73px;
-    left: -200px;
-    right: -205px;
-    transform: rotate(90deg);
-    font-size: 10.8px;
-    color: rgb(158, 158, 158);
-    font-weight: 300;
-    opacity: 0;
-    transition: opacity 500ms;
 }
 
 #container-merits {
@@ -438,4 +449,97 @@ aside p {
     border: 7px solid rgb(250, 250, 250);
 }
 
+
+@media screen and (max-width: 1100px) {
+    
+    header {
+        left: 6vmin;
+    }
+    
+    nav > ul {
+        display: none;
+    }
+    
+    .bi-list {
+        position: relative;
+        top: -26px;
+        display: inline;
+        color: rgb(102, 102, 102);
+        font-size: 40px;
+    }
+
+    #close-cv-btn {
+        width: 6vmin;
+    }
+
+    #white-div {
+        flex: 0 0 6vmin;
+        transition: flex 350ms linear;
+    }
+
+    aside {
+        display: none;
+    }
+
+    #btn-scroll-down {
+        left: 6vmin;
+    }
+
+    .square-img-container {
+        width: 30%;
+    }
+
+    .portfolio-objects-container {
+        padding: 11vh 9vw;
+        row-gap: 5vh;
+    }
+
+  }
+
+
+@media screen and (max-width: 800px) {
+    
+    header {
+        left: 7vmin;
+    }
+    
+    nav > ul {
+        display: none;
+    }
+    
+    .bi-list {
+        position: relative;
+        top: -26px;
+        display: inline;
+        color: rgb(102, 102, 102);
+        font-size: 40px;
+    }
+
+    #close-cv-btn {
+        width: 7vmin;
+    }
+
+    #white-div {
+        flex: 0 0 7vmin;
+        transition: flex 350ms linear;
+    }
+
+    aside {
+        display: none;
+    }
+
+    #btn-scroll-down {
+        left: 7vmin;
+    }
+
+    .square-img-container {
+        width: 47%;
+    }
+
+    .portfolio-objects-container {
+        padding: 11vh 9vw;
+        row-gap: 4vh;
+    }
+
+  }
 
