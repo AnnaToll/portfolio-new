@@ -1,9 +1,9 @@
-if (window.innerWidth <= 800) {
+if (window.innerWidth <= 850) {
     document.body.classList.add('menystangd');
 }
 
 window.addEventListener('resize', () => {
-    if (window.innerWidth <= 800 && isSidebarClicked == 'no') {
+    if (window.innerWidth <= 800 && isSidebarClicked == 'no' ) {
         document.body.classList.add('menystangd');
     }
 })
@@ -53,42 +53,8 @@ let meritsBtn = document.getElementById('close-cv-btn');
 meritsBtn.addEventListener('click', (e) => {
     e.preventDefault();
     isSidebarClicked = 'yes';
-    let className = document.body.getAttribute("class");
-    if(className == "menystangd") {
-        document.body.classList.remove('menystangd');
-        document.body.classList.add('menyoppen');
-        setTimeout(function() { 
-            $("aside").fadeIn(150); 
-        }, 350);
-    }
-    else {
-        document.body.classList.remove('menyoppen');
-        document.body.classList.add('menystangd');
-        sidebar.style.display = 'none';
-    }
+    document.body.classList.toggle('menystangd');
 })
-
-/* meritsBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    let className = document.body.getAttribute("class");
-    if(className == "menystangd") {
-        document.body.className = "menyoppen";
-        setTimeout(function() { 
-            $("aside").fadeIn(150); 
-        }, 350);
-    }
-    else {
-        document.body.className = "menystangd";
-        sidebar.style.display = 'none';
-    }
-}) */
-
-
-function openCloseSidebar() {
-    let sidebar = document.querySelector('aside');
-    console.log(sidebar);
-}
-
 
 window.onscroll = () => {
     let homeText = document.querySelector('#main-home-container > div > p');
