@@ -321,10 +321,10 @@ aside {
     top: 69px;
     right: -9.5px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.7px;
     color: rgb(160, 160, 160);
     font-weight: 300;
-    font-size: 12px;
+    font-size: 11.5px;
     transform: rotate(90deg);
 }
 
@@ -544,6 +544,11 @@ aside p {
     .menystangd #close-cv-btn .bi-phone {
         opacity: 1;
         transition: opacity 500ms;
+    }
+
+    #headline-merits {
+        font-size: 12px;
+        letter-spacing: 1px;
     }
 
     .portfolio-objects-container {

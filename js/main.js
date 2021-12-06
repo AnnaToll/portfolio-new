@@ -1,6 +1,4 @@
-if (window.innerWidth <= 850) {
-    document.body.classList.add('menystangd');
-}
+
 
 window.addEventListener('resize', () => {
     if (window.innerWidth <= 800 && isSidebarClicked == 'no' ) {
@@ -30,6 +28,7 @@ for (let merit of meritsArr) {
             }
         }
     })
+    
     merit.addEventListener('mouseover', () => {
         merit.classList.add('merits-mouseover');
         merit.addEventListener('mouseout', () => {
@@ -39,11 +38,26 @@ for (let merit of meritsArr) {
         })
 
     })
-    darkBackgroundDiv.addEventListener('click', () => {
+    darkenBackground (merit, 'merits-mouseover');
+/*     darkBackgroundDiv.addEventListener('click', () => {
         $("#darken-background-fullwidth").fadeOut(300);
         merit.classList.remove('merits-mouseover');
-    })
+    }) */
 }
+
+function darkenBackground (element, classChange) {
+    darkBackgroundDiv.addEventListener('click', () => {
+        $("#darken-background-fullwidth").fadeOut(300);
+        if (
+        document.body.className == '' 
+        && window.innerWidth <= 800
+        ) {
+            document.body.classList.remove('menystangd');
+        } else {
+            element.classList.remove(classChange);
+        }
+    })
+} 
 
 let logo = document.querySelector('header > a');
 let sidebar = document.querySelector('aside');
@@ -53,6 +67,11 @@ meritsBtn.addEventListener('click', (e) => {
     e.preventDefault();
     isSidebarClicked = 'yes';
     document.body.classList.toggle('menystangd');
+    if (document.body.className == '' && window.innerWidth <= 800) {
+        $("#darken-background-fullwidth").fadeIn(300);
+    }   else {
+        darkBackgroundDiv.click();
+    }
 })
 
 window.onscroll = () => {
