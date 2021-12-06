@@ -104,7 +104,6 @@ a:hover p {
     background-color: rgba(0, 0, 0, 0.4);
     height: 100vh;
     width: 100vw;
-    z-index: 10;
 }
 
 #hidden-elements-container {
@@ -242,7 +241,7 @@ aside {
     padding: 3.4vh calc(20px + 1vw);
     transition: right 350ms linear;
     background-color: white;
-    z-index: 11;
+    z-index: 13;
 }
 
 .menystangd aside {
@@ -281,7 +280,7 @@ aside {
     padding: 1.55em 0;
     width: 40px;
     cursor: pointer;
-    z-index: 15;
+    z-index: 16;
 }
 
 #close-cv-btn .bi-x-lg {
@@ -403,7 +402,7 @@ aside p {
 .merits-popup-container {
     position: relative;
     background-color: white;
-    width: 40vw;
+    max-width: 620px;
     padding: 10vh 5vw;
     top: -4vh;
 }
@@ -517,7 +516,7 @@ aside p {
         padding-right: 40px;
     }
 
-    .hamburger-menu-clicked > div:last-of-type {
+    .hamburger-menu-clicked #mobile-nav-dark-background {
         display: block;
         position: fixed;
         top: 0;
@@ -526,7 +525,7 @@ aside p {
         width: 100vw;
         padding-right: 40px;
         background-color: rgba(0, 0, 0, 0.9);
-        z-index: 1;
+        z-index: 5;
 
     }
     

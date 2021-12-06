@@ -23,6 +23,7 @@ for (let merit of meritsArr) {
                         ${element.innerHTML}
                     </div>
                 `;
+                darkBackgroundDiv.style.cssText = `z-index: 20;`;
                 $("#darken-background-fullwidth").fadeIn(300); 
                 darkBackgroundDiv.style.display = 'grid';
             }
@@ -68,6 +69,8 @@ meritsBtn.addEventListener('click', (e) => {
     isSidebarClicked = 'yes';
     document.body.classList.toggle('menystangd');
     if (document.body.className == '' && window.innerWidth <= 800) {
+        darkBackgroundDiv.innerHTML = '';
+        darkBackgroundDiv.style.cssText = `z-index: 12;`;
         $("#darken-background-fullwidth").fadeIn(300);
     }   else {
         darkBackgroundDiv.click();
@@ -102,7 +105,7 @@ hamburgerMenuBtn.addEventListener('click', () => {
 
 })
 
-document.querySelector('header > div:last-of-type').addEventListener('click', () => {
+document.querySelector('#mobile-nav-dark-background').addEventListener('click', () => {
     header.classList.toggle('hamburger-menu-clicked');
 /*     if (header.getAttribute('class') == 'hamburger-menu-clicked') {
         document.querySelector('header img').href = 'img/logo-white.png';
