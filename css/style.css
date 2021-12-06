@@ -491,10 +491,38 @@ aside p {
         display: none;
     }
 
+    .hamburger-menu-clicked * {
+        position: relative;
+        z-index: 11;
+    }
+
+    .hamburger-menu-clicked ul {
+        position: relative;
+        display: block;
+    }
+
+    .hamburger-menu-clicked a,
+    .hamburger-menu-clicked .bi-list {
+        color: white;
+    }
+
     .container-all {
         padding-right: 40px;
     }
-    
+
+    .hamburger-menu-clicked > div:last-of-type {
+        display: block;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        padding-right: 40px;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 1;
+
+    }
+     
     /* .menystangd .container-all {
         padding-right: 40px;
     } */

@@ -49,7 +49,6 @@ let logo = document.querySelector('header > a');
 let sidebar = document.querySelector('aside');
 
 let meritsBtn = document.getElementById('close-cv-btn');
-
 meritsBtn.addEventListener('click', (e) => {
     e.preventDefault();
     isSidebarClicked = 'yes';
@@ -70,3 +69,12 @@ window.onscroll = () => {
         scrollDownBtn.href = '#main-portfolio';
     }
 };
+
+let hamburgerMenuBtn = document.querySelector('nav .bi-list');
+hamburgerMenuBtn.addEventListener('click', () => {
+    document.querySelector('header').classList.toggle('hamburger-menu-clicked');
+})
+
+document.querySelector('header > div:last-of-type').addEventListener('click', () => {
+    document.querySelector('header').classList.toggle('hamburger-menu-clicked');
+})
