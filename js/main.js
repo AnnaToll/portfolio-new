@@ -71,10 +71,23 @@ window.onscroll = () => {
 };
 
 let hamburgerMenuBtn = document.querySelector('nav .bi-list');
+let header = document.querySelector('header');
 hamburgerMenuBtn.addEventListener('click', () => {
-    document.querySelector('header').classList.toggle('hamburger-menu-clicked');
+    header.classList.toggle('hamburger-menu-clicked');
+/*     console.log(document.querySelector('header img'));
+    if (header.getAttribute('class') == 'hamburger-menu-clicked') {
+        document.querySelector('header img').src = 'img/logo-grey.png';
+    } else {
+        document.querySelector('header img').src = 'img/logo.png';
+    } */
+
 })
 
 document.querySelector('header > div:last-of-type').addEventListener('click', () => {
-    document.querySelector('header').classList.toggle('hamburger-menu-clicked');
+    header.classList.toggle('hamburger-menu-clicked');
+/*     if (header.getAttribute('class') == 'hamburger-menu-clicked') {
+        document.querySelector('header img').href = 'img/logo-white.png';
+    } else {
+        document.querySelector('header img').href = 'img/logo.png';
+    } */
 })

@@ -286,7 +286,7 @@ aside {
     font-weight: 300;
     font-size: 11.5px;
     cursor: pointer;
-    z-index: 2;
+    z-index: 15;
 }
 
 #close-cv-btn .bi-x-lg {
@@ -496,9 +496,20 @@ aside p {
         z-index: 11;
     }
 
+    .hamburger-menu-clicked nav {
+        top: -40px;
+    }
+
     .hamburger-menu-clicked ul {
         position: relative;
         display: block;
+        top: 30px;
+    }
+
+    .hamburger-menu-clicked nav ul li a {
+        font-size: 17px;
+        height: 45px;
+        letter-spacing: 1px;
     }
 
     .hamburger-menu-clicked a,
@@ -518,7 +529,7 @@ aside p {
         left: 0;
         width: 100vw;
         padding-right: 40px;
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(0, 0, 0, 0.9);
         z-index: 1;
 
     }
