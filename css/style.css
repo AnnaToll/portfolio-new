@@ -242,6 +242,7 @@ aside {
     padding: 3.4vh calc(20px + 1vw);
     transition: right 350ms linear;
     background-color: white;
+    z-index: 11;
 }
 
 .menystangd aside {
@@ -255,7 +256,7 @@ aside {
 .menystangd #close-cv-btn .bi-phone {
     opacity: 1;
     transition: opacity 500ms;
-    font-size: 17.5px;
+    font-size: 19.5px;
 }
 
 #sidebar-container {
@@ -279,12 +280,6 @@ aside {
     align-items: center;
     padding: 1.55em 0;
     width: 40px;
-    /* height: 100vh; */
-    text-transform: uppercase;
-    letter-spacing: 0.7px;
-    color: rgb(153, 153, 153);
-    font-weight: 300;
-    font-size: 11.5px;
     cursor: pointer;
     z-index: 15;
 }
@@ -306,7 +301,7 @@ aside {
 #close-cv-btn .bi-phone {
     opacity: 0;
     position: relative;
-    font-size: 14px;
+    font-size: 14.5px;
     color: rgb(197, 197, 197);
     font-style: normal;
 }
@@ -323,13 +318,13 @@ aside {
 
 #headline-merits {
     position: absolute;
-    top: 65px;
-    right: -6px;
+    top: 69px;
+    right: -9.5px;
     text-transform: uppercase;
-    letter-spacing: 0.7px;
-    color: rgb(153, 153, 153);
+    letter-spacing: 1px;
+    color: rgb(160, 160, 160);
     font-weight: 300;
-    font-size: 11.5px;
+    font-size: 12px;
     transform: rotate(90deg);
 }
 
@@ -374,7 +369,7 @@ aside {
 
 .merits-mouseover .bullet {
     border: 1px solid var(--timeline);
-    transform: scale(2.8 );
+    transform: scale(2.8);
 }
 
 .plus {
@@ -484,7 +479,7 @@ aside p {
         top: -26px;
         display: inline;
         color: rgb(102, 102, 102);
-        font-size: 34px;
+        font-size: 34.5px;
     }
     
     nav > ul {
@@ -510,11 +505,12 @@ aside p {
         font-size: 17px;
         height: 45px;
         letter-spacing: 1px;
+        color: white;
     }
 
-    .hamburger-menu-clicked a,
     .hamburger-menu-clicked .bi-list {
         color: white;
+        font-size: 35px;
     }
 
     .container-all {
@@ -525,18 +521,14 @@ aside p {
         display: block;
         position: fixed;
         top: 0;
-        bottom: 0;
         left: 0;
+        height: 100%;
         width: 100vw;
         padding-right: 40px;
         background-color: rgba(0, 0, 0, 0.9);
         z-index: 1;
 
     }
-     
-    /* .menystangd .container-all {
-        padding-right: 40px;
-    } */
     
     #main-home-container > div {
         top: 0.3vh;
