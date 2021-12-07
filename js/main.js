@@ -1,80 +1,78 @@
+let darkBackgroundAside = createDarkBackground(12, 'aside'),
+    darkBackgroundPopup = createDarkBackground(20, 'popup'),
+    isSidebarClicked = 'no',
+    nav = document.querySelector('header'),
+    meritsArr = document.querySelectorAll('#container-merits > div');
 
+function createDarkBackground(zIndex, uniqueId) {
+    let div = document.createElement('div');
+    div.classList.add('darken-background-fullwidth');
+    div.style.cssText = `z-index: ${zIndex};`;
+    div.id = `dark-background-${uniqueId}`;
+    return div;
+}
 
 window.addEventListener('resize', () => {
-    if (window.innerWidth <= 800 && isSidebarClicked == 'no' ) {
+    if (window.innerWidth <= 850 && isSidebarClicked == 'no' ) {
         document.body.classList.add('menystangd');
     }
 })
 
-let darkBackgroundDiv = document.getElementById('darken-background-fullwidth');
-let nav = document.querySelector('header');
-let meritsArr = document.querySelectorAll('#container-merits > div');
-let isSidebarClicked = 'no';
 
 for (let merit of meritsArr) {
+
     let hiddenElements = document.getElementById('hidden-elements-container');
+
     merit.addEventListener('click', (e) => {
         e.preventDefault();
-        merit.classList.add('merits-mouseover');
+
+        document.body.append(darkBackgroundPopup);
+
+        merit.classList.toggle('merits-active');
+
         for (let element of hiddenElements.children) {
             if (merit.children[2].firstElementChild.innerText.toLowerCase().trim() == element.firstElementChild.innerText.toLowerCase().trim()) {
-                darkBackgroundDiv.innerHTML = `
+                darkBackgroundPopup.innerHTML = `
                     <div class="merits-popup-container">
                         ${element.innerHTML}
                     </div>
                 `;
-                darkBackgroundDiv.style.cssText = `z-index: 20;`;
-                $("#darken-background-fullwidth").fadeIn(300); 
-                darkBackgroundDiv.style.display = 'grid';
+                $("#dark-background-popup").fadeToggle(300);
+                darkBackgroundPopup.style.cssText += `display: grid;`;
             }
         }
     })
     
-    merit.addEventListener('mouseover', () => {
-        merit.classList.add('merits-mouseover');
-        merit.addEventListener('mouseout', () => {
-            if (darkBackgroundDiv.style.display != 'grid') {
-                merit.classList.remove('merits-mouseover');
-            }
-        })
-
-    })
-    darkenBackground (merit, 'merits-mouseover');
-/*     darkBackgroundDiv.addEventListener('click', () => {
-        $("#darken-background-fullwidth").fadeOut(300);
-        merit.classList.remove('merits-mouseover');
-    }) */
+    darkBackgroundPopup.addEventListener('click', function() {
+        $(this).fadeOut(300);
+        merit.classList.remove('merits-active');
+    }) 
+    
 }
 
-function darkenBackground (element, classChange) {
-    darkBackgroundDiv.addEventListener('click', () => {
-        $("#darken-background-fullwidth").fadeOut(300);
-        if (
-        document.body.className == '' 
-        && window.innerWidth <= 800
-        ) {
-            document.body.classList.remove('menystangd');
-        } else {
-            element.classList.remove(classChange);
-        }
-    })
-} 
 
 let logo = document.querySelector('header > a');
 let sidebar = document.querySelector('aside');
+let sidebarBtn = document.getElementById('close-cv-btn');
 
-let meritsBtn = document.getElementById('close-cv-btn');
-meritsBtn.addEventListener('click', (e) => {
+darkBackgroundAside.addEventListener('click', () => {
+    document.body.classList.add('menystangd');
+    $("#dark-background-aside").fadeOut(300);
+
+})
+
+sidebarBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    document.body.append(darkBackgroundAside);
     isSidebarClicked = 'yes';
     document.body.classList.toggle('menystangd');
-    if (document.body.className == '' && window.innerWidth <= 800) {
-        darkBackgroundDiv.innerHTML = '';
-        darkBackgroundDiv.style.cssText = `z-index: 12;`;
-        $("#darken-background-fullwidth").fadeIn(300);
-    }   else {
-        darkBackgroundDiv.click();
+    if (document.body.getAttribute('class') == '' && window.innerWidth <= 850) {
+        $("#dark-background-aside").fadeIn(300);
+    } else if (document.body.getAttribute('class') == 'menystangd' && window.innerWidth <= 850) {
+        $("#dark-background-aside").fadeOut(300);
     }
+    
+
 })
 
 window.onscroll = () => {

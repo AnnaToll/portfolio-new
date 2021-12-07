@@ -96,7 +96,7 @@ a:hover p {
     transition: padding 350ms linear;
 }
 
-#darken-background-fullwidth {
+.darken-background-fullwidth {
     display: none;
     position: fixed;
     top: 0;
@@ -347,8 +347,10 @@ aside {
 }
 
 
-.merits-mouseover h5,
-.merits-mouseover p {
+.merits-active h5,
+.merits-active p,
+#container-merits > div:hover h5,
+#container-merits > div:hover p {
     font-weight: bolder;
     color: rgb(78, 78, 78);
 }
@@ -366,7 +368,8 @@ aside {
     transition-property: border, transform;
 }
 
-.merits-mouseover .bullet {
+.merits-active .bullet,
+#container-merits > div:hover .bullet {
     border: 1px solid var(--timeline);
     transform: scale(2.8);
 }
@@ -382,7 +385,8 @@ aside {
     transition-duration: 350ms;
 }
 
-.merits-mouseover .plus {
+.merits-active .plus,
+#container-merits > div:hover .plus {
     transform: scale(1);
     color: rgb(68, 68, 68);
 }
