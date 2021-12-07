@@ -1,7 +1,9 @@
 let darkBackgroundAside = createDarkBackground(12, 'aside'),
     darkBackgroundPopup = createDarkBackground(20, 'popup'),
+    darkBackgroundPortfolio = createDarkBackground(20, 'portfolio'),
     isSidebarClicked = 'no',
     nav = document.querySelector('header'),
+    portfolioArr = document.querySelectorAll('#portfolio-objects-container > section')
     meritsArr = document.querySelectorAll('#container-merits > div');
 
 function createDarkBackground(zIndex, uniqueId) {
@@ -17,6 +19,28 @@ window.addEventListener('resize', () => {
         document.body.classList.add('menystangd');
     }
 })
+
+for (let portfolioObject of portfolioArr) {
+
+    console.log(portfolioObject);
+
+    portfolioObject.addEventListener('click', () => {
+
+        document.body.append(darkBackgroundPortfolio);
+        
+        darkBackgroundPortfolio.innerHTML = `
+            <div class="shows-when-clicked-active">
+                ${portfolioObject.lastElementChild.innerHTML}
+            </div>
+        `;
+        $("#dark-background-portfolio").fadeIn(300);
+        darkBackgroundPortfolio.style.cssText += `display: grid;`;
+    })
+
+    darkBackgroundPortfolio.addEventListener('click', function() {
+        $(this).fadeOut(300);
+    }) 
+}
 
 
 for (let merit of meritsArr) {
@@ -47,7 +71,6 @@ for (let merit of meritsArr) {
         $(this).fadeOut(300);
         merit.classList.remove('merits-active');
     }) 
-    
 }
 
 
@@ -93,21 +116,9 @@ window.onscroll = () => {
 let hamburgerMenuBtn = document.querySelector('nav .bi-list');
 let header = document.querySelector('header');
 hamburgerMenuBtn.addEventListener('click', () => {
-    header.classList.toggle('hamburger-menu-clicked');
-/*     console.log(document.querySelector('header img'));
-    if (header.getAttribute('class') == 'hamburger-menu-clicked') {
-        document.querySelector('header img').src = 'img/logo-grey.png';
-    } else {
-        document.querySelector('header img').src = 'img/logo.png';
-    } */
-
+    header.classList.toggle('hamburger-menu-clicked')
 })
 
 document.querySelector('#mobile-nav-dark-background').addEventListener('click', () => {
     header.classList.toggle('hamburger-menu-clicked');
-/*     if (header.getAttribute('class') == 'hamburger-menu-clicked') {
-        document.querySelector('header img').href = 'img/logo-white.png';
-    } else {
-        document.querySelector('header img').href = 'img/logo.png';
-    } */
 })
