@@ -426,7 +426,6 @@ aside p {
 
 
 #main-portfolio {
-    /* background-color: rgb(178, 209, 178); */
     background-color: rgb(185, 212, 185);
     min-height: 100vh;
 }
@@ -452,6 +451,10 @@ aside p {
     border-radius: 3px;
 }
 
+#filtratePortfolioBtnContainer button.selected-filter-btn-portfolio {
+    background-color: rgb(202, 202, 202);
+}
+
 .square-img-container {
     cursor: pointer;
     width: 22%;
@@ -473,6 +476,10 @@ aside p {
 }
 
 .shows-when-clicked {
+    display: none;
+}
+
+.tags {
     display: none;
 }
 
