@@ -54,6 +54,8 @@ h2 {
 
 h3 {
     margin-bottom: 3vh;
+    font-family: 'Assistant', sans-serif;
+    font-size: 18px;
 }
 
 h5 {
@@ -100,10 +102,14 @@ a:hover p {
     display: none;
     position: fixed;
     top: 0;
-    place-content: center;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: auto auto auto;
+    column-gap: 30px;
     background-color: rgba(0, 0, 0, 0.4);
     min-height: 100vh;
-    width: 100vw;
+    min-width: 100%;
+    max-width: 100%;
 }
 
 #hidden-elements-container {
@@ -190,8 +196,13 @@ nav ul li a {
     animation-name: bouncing-arrow;
     animation-duration: 750ms;
     animation-iteration-count: infinite;
-    transition: background-image 300ms;
+    transition: background-image 300ms, color 150ms;
     z-index: 1;
+}
+
+.btn-scroll-down:hover {
+    color: rgba(13, 15, 20, 0.4);
+    transition: background-image 300ms, color 150ms;
 }
 
 .btn-scroll-down > div {
@@ -406,7 +417,7 @@ aside p {
 .merits-popup-container {
     position: relative;
     background-color: white;
-    max-width: 620px;
+    width: 620px;
     padding: 10vh 5vw;
     top: -4vh;
 }
@@ -428,6 +439,17 @@ aside p {
     padding: 13vh 10.5vw;
     row-gap: 5.5vh;
     min-height: 100vh;
+}
+
+#filtratePortfolioBtnContainer {
+    width: 100%;
+}
+
+#filtratePortfolioBtnContainer button {
+    padding: 0.15em 0.53em;
+    background-color: rgb(238, 238, 238);
+    border: 0.5px solid rgb(179, 179, 179);
+    border-radius: 3px;
 }
 
 .square-img-container {
@@ -455,11 +477,28 @@ aside p {
 }
 
 .shows-when-clicked-active {
+    position: relative;
     display: block;
-    max-width: 700px;
+    overflow: auto;
+    width: 800px;
+    max-height: 91vh;
     background-color: white;
     padding: 10vh 5vw;
-    top: -4vh;
+}
+
+.shows-when-clicked-active .bi-x-lg {
+    font-size: 15px;
+    color: grey;
+    position: absolute;
+    top: 19px;
+    left: 25px;
+    cursor: pointer;
+}
+
+.bi-arrow-right-circle-fill,
+.bi-arrow-left-circle-fill {
+    font-size: 39px;
+    color: rgba(0, 0, 0, 0.3);
 }
 
 
@@ -573,6 +612,11 @@ aside p {
 
     .square-img-container {
         width: 47%;
+    }
+
+    .shows-when-clicked-active,
+    .merits-popup-container {
+        width: 90vw;
     }
 
   }

@@ -3,7 +3,7 @@ let darkBackgroundAside = createDarkBackground(12, 'aside'),
     darkBackgroundPortfolio = createDarkBackground(20, 'portfolio'),
     isSidebarClicked = 'no',
     nav = document.querySelector('header'),
-    portfolioArr = document.querySelectorAll('#portfolio-objects-container > section')
+    portfolioArr = document.querySelectorAll('#portfolio-objects-container > section'),
     meritsArr = document.querySelectorAll('#container-merits > div');
 
 function createDarkBackground(zIndex, uniqueId) {
@@ -22,24 +22,58 @@ window.addEventListener('resize', () => {
 
 for (let portfolioObject of portfolioArr) {
 
-    console.log(portfolioObject);
-
     portfolioObject.addEventListener('click', () => {
 
         document.body.append(darkBackgroundPortfolio);
         
         darkBackgroundPortfolio.innerHTML = `
+            <i class="bi bi-arrow-left-circle-fill"></i>
             <div class="shows-when-clicked-active">
+                <i class="bi bi-x-lg"></i>
                 ${portfolioObject.lastElementChild.innerHTML}
             </div>
+            <i class="bi bi-arrow-right-circle-fill"></i>
         `;
         $("#dark-background-portfolio").fadeIn(300);
-        darkBackgroundPortfolio.style.cssText += `display: grid;`;
+       
+         document.querySelector('.bi-arrow-left-circle-fill').addEventListener('click', () => {
+             
+             darkBackgroundPortfolio.innerHTML = `
+            <i class="bi bi-arrow-left-circle-fill"></i>
+            <div class="shows-when-clicked-active">
+                <i class="bi bi-x-lg"></i>
+                ${portfolioObject.previousElementSibling.lastElementChild.innerHTML}
+            </div>
+            <i class="bi bi-arrow-right-circle-fill"></i>
+        `;
+         })
+
+         document.querySelector('.bi-arrow-right-circle-fill').addEventListener('click', () => {
+             
+            darkBackgroundPortfolio.innerHTML = `
+            <i class="bi bi-arrow-left-circle-fill"></i>
+            <div class="shows-when-clicked-active">
+                <i class="bi bi-x-lg"></i>
+                ${portfolioObject.nextElementSibling.lastElementChild.innerHTML}
+            </div>
+            <i class="bi bi-arrow-right-circle-fill"></i>
+        `;
+         })
+
+         darkBackgroundPortfolio.style.cssText += `display: grid;`;
+         document.querySelector('.shows-when-clicked-active .bi-x-lg').addEventListener('click', () => {
+             darkBackgroundPortfolio.click();
+         })
+
     })
 
-    darkBackgroundPortfolio.addEventListener('click', function() {
+    darkBackgroundPortfolio.addEventListener('click', function(e) {
+        if (e.target !== this)
+        return;
+
         $(this).fadeOut(300);
-    }) 
+    })
+
 }
 
 
