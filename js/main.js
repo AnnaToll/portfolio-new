@@ -5,6 +5,8 @@ let darkBackgroundAside = createDarkBackground(12, 'aside'),
     nav = document.querySelector('header'),
     meritsArr = document.querySelectorAll('#container-merits > div');
 
+addEventListenerToPortfolioObjects();
+
 function createDarkBackground(zIndex, uniqueId) {
     let div = document.createElement('div');
     div.classList.add('darken-background-fullwidth');
