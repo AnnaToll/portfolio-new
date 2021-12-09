@@ -44,17 +44,17 @@ let portfolioObject = {
     addEventlistenersToBtns : function() {
         for (let btn of this.filter.children) {
             btn.addEventListener('click', () => {
-                if (btn.innerHTML.includes('bi-x-lg')) {
+                if (btn.innerHTML.includes('bi-x')) {
                     btnNameIndex = this.tags_arr.indexOf(btn.innerText);
                     this.tags_arr.splice(btnNameIndex, 1);
                     this.sortContent();
                     btn.classList.remove('selected-filter-btn-portfolio');
-                    btn.innerHTML = btn.innerHTML.replace('<i class="bi bi-x-lg"></i>', '');
+                    btn.innerHTML = btn.innerHTML.replace('<i class="bi bi-x"></i>', '');
 
                 } else {
                     this.tags_arr.push(btn.innerHTML);
                     this.sortContent();
-                    btn.innerHTML += '<i class="bi bi-x-lg"></i>';
+                    btn.innerHTML += '<i class="bi bi-x"></i>';
                     btn.classList.add('selected-filter-btn-portfolio');
                 }
             })
@@ -64,10 +64,11 @@ let portfolioObject = {
 
     sortContent : function() {
         this.container.innerHTML = '';
-        console.log(this.container);
+
         for (let portfolioObject of this.containerCopy.children) {
             let tagsInObjectString = portfolioObject.lastElementChild.lastElementChild.innerText.replace(', ', ',').trim();
             let tagsInObjectArr = tagsInObjectString.split(',');
+
             for (let tag of this.tags_arr) {
                 if (tagsInObjectArr.includes(tag)) {
                     this.container.innerHTML += `
@@ -80,12 +81,8 @@ let portfolioObject = {
 
             }
         }
-        if (this.container.innerHTML == '') {
+        if (this.container.innerHTML == '')
             this.container.innerHTML = this.containerCopy.innerHTML;
-            console.log('tom');
-            console.log(this.containerCopy);
-            console.log(this.container);
-        }
         
         addEventListenerToPortfolioObjects();
     }
@@ -100,7 +97,6 @@ function addEventListenerToPortfolioObjects() {
     for (let portfolioObject of portfolioArr) {
     
         portfolioObject.addEventListener('click', () => {
-    
             document.body.append(darkBackgroundPortfolio);
             
             darkBackgroundPortfolio.innerHTML = `
@@ -114,16 +110,12 @@ function addEventListenerToPortfolioObjects() {
             $("#dark-background-portfolio").fadeIn(300);
     
             document.querySelector('.bi-arrow-left-circle-fill').addEventListener('click', () => {
-                if (!portfolioObject.previousElementSibling)
-                    return;
-                
+                if (!portfolioObject.previousElementSibling) return;
                 portfolioObject.previousElementSibling.click();
             })
     
             document.querySelector('.bi-arrow-right-circle-fill').addEventListener('click', () => {
-                if (!portfolioObject.nextElementSibling)
-                    return;
-    
+                if (!portfolioObject.nextElementSibling) return;
                 portfolioObject.nextElementSibling.click();
             })
     
@@ -135,9 +127,7 @@ function addEventListenerToPortfolioObjects() {
         })
     
         darkBackgroundPortfolio.addEventListener('click', function(e) {
-            if (e.target !== this)
-                return;
-    
+            if (e.target !== this) return;
             $(this).fadeOut(300);
         })
     

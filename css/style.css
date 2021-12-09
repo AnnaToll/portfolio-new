@@ -428,27 +428,27 @@ aside p {
 #main-portfolio {
     background-color: rgb(185, 212, 185);
     min-height: 100vh;
+    padding: 8.5vh 10.5vw;
 }
 
 #portfolio-objects-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: center;
-    padding: 13vh 10.5vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 4%;
     row-gap: 5.5vh;
-    min-height: 100vh;
 }
 
 #filtratePortfolioBtnContainer {
-    width: 100%;
+    margin-bottom: 4vh;
 }
 
 #filtratePortfolioBtnContainer button {
-    padding: 0.15em 0.53em;
+    font-family: 'Assistant', sans-serif;
+    padding: 0.16em 0.64em;
     background-color: rgb(238, 238, 238);
     border: 0.5px solid rgb(179, 179, 179);
     border-radius: 3px;
+    cursor: pointer;
 }
 
 #filtratePortfolioBtnContainer button.selected-filter-btn-portfolio {
@@ -457,7 +457,7 @@ aside p {
 
 .square-img-container {
     cursor: pointer;
-    width: 22%;
+    /* width: 22%; */
 }
 
 .square-img-container > div:first-of-type {
@@ -519,12 +519,13 @@ aside p {
         left: 6vmin;
     }
 
-    .square-img-container {
-        width: 30%;
-    }
-
     #portfolio-objects-container {
         row-gap: 5vh;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .square-img-container {
+        /* width: 30%; */
     }
 
   }
@@ -613,12 +614,17 @@ aside p {
         letter-spacing: 1px;
     }
 
+    #main-portfolio {
+        padding: 12vh 5.1vw;
+    }
+
     #portfolio-objects-container {
-        padding: 13vh 6vw;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 4.7%;
     }
 
     .square-img-container {
-        width: 47%;
+        /* width: 47.5%; */
     }
 
     .shows-when-clicked-active,
@@ -632,11 +638,15 @@ aside p {
 @media screen and (max-width: 550px) {
 
     .square-img-container {
-        width: 100%;
+        /* width: 100%; */
+    }
+
+    #main-portfolio {
+        padding: 12vh 5.5vw;
     }
 
     #portfolio-objects-container {
-        padding: 11vh 9vw;
+        grid-template-columns: 1fr;
         row-gap: 10vh;
     }
 
