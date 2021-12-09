@@ -73,6 +73,10 @@ h6 {
     font-weight: 400;
 }
 
+p + p {
+    margin-top: 18px;
+}
+
 a:hover,
 a:hover h5,
 a:hover p {
@@ -151,7 +155,6 @@ nav ul li a {
 
 /* --------------- MAIN --------------- */
 
- 
 #main-home-container {
     display: grid;
     height: 100vh;
@@ -500,6 +503,30 @@ aside p {
     top: 19px;
     left: 25px;
     cursor: pointer;
+}
+
+.shows-when-clicked-active h3 {
+    margin-bottom: 30px;
+}
+
+.shows-when-clicked-active img {
+    margin-bottom: 28px;
+    border: 0.5px solid rgb(221, 221, 221);
+}
+
+.shows-when-clicked-active p {
+    margin-bottom: 16px;
+    font-weight: 200px;
+    color: grey;
+}
+
+.shows-when-clicked-active a {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
 }
 
 .bi-arrow-right-circle-fill,
