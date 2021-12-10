@@ -138,7 +138,6 @@ function popupSidebarMerits() {
 function openCloseSidebar() {
 
     const darkBackgroundAside = createDarkBackground(12, 'aside');
-    // const sidebarBtn = document.getElementById('close-cv-btn');
     const sidebarBtn = document.querySelector('#close-cv-btn > section');
 
     sidebarBtn.addEventListener('click', (e) => {
@@ -169,31 +168,36 @@ function openCloseSidebar() {
 }
 
 function copyNumberToClipboard() {
-    const phoneNumber = '+46733929285';
     const phoneBtn = document.querySelector('.bi-phone');
-
-    
 
     function textToClipboard (text) {
         var dummy = document.createElement("textarea");
+        let messageContainer = document.createElement('div');
+
         document.body.appendChild(dummy);
+        document.body.appendChild(messageContainer);
+        
         dummy.value = text;
         dummy.select();
         document.execCommand("copy");
-        document.body.removeChild(dummy);
-        alert(`Copied ${dummy.value} to clipboard`);
+
+        messageContainer.innerText = `Copied ${dummy.value} to clipboard`;
+        messageContainer.classList.add('copy-to-clipboard-message');
+        $(".copy-to-clipboard-message").fadeIn(150);
+
+        setTimeout(function(){
+            $(".copy-to-clipboard-message").fadeOut(200);
+       }, 1700);
+
+
+
+        // document.body.removeChild(dummy);
+        // alert(`Copied ${dummy.value} to clipboard`);
     }
 
     phoneBtn.addEventListener('click', () => {
         textToClipboard('+46733929285');
-        console.log('klick');
     })
-/*     phoneBtn.addEventListener('click', () => {
-        phoneNumber.select();
-        document.execCommand("copy");
-        console.log('klick');
-    }) */
-
 }
 
 
