@@ -553,7 +553,11 @@ aside p {
 
 .shows-when-clicked-active img {
     margin-bottom: 28px;
-    border: 0.5px solid rgb(221, 221, 221);
+    /* border: 0.5px solid rgb(221, 221, 221); */
+}
+
+.img-shadow {
+    box-shadow: 2px 2px 5px 1px rgb(230, 230, 230);
 }
 
 .shows-when-clicked-active p {
