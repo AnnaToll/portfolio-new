@@ -171,7 +171,7 @@ function copyNumberToClipboard() {
     const phoneNumber = '+46733929285';
     const phoneBtn = document.querySelector('.bi-phone');
 
-/*     textToClipboard('+46733929285');
+    
 
     function textToClipboard (text) {
         var dummy = document.createElement("textarea");
@@ -180,12 +180,17 @@ function copyNumberToClipboard() {
         dummy.select();
         document.execCommand("copy");
         document.body.removeChild(dummy);
-    } */
+    }
 
     phoneBtn.addEventListener('click', () => {
+        textToClipboard('+46733929285');
+        console.log('klick');
+    })
+/*     phoneBtn.addEventListener('click', () => {
         phoneNumber.select();
         document.execCommand("copy");
-    })
+        console.log('klick');
+    }) */
 
 }
 
