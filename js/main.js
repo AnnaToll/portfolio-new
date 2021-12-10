@@ -138,7 +138,8 @@ function popupSidebarMerits() {
 function openCloseSidebar() {
 
     const darkBackgroundAside = createDarkBackground(12, 'aside');
-    const sidebarBtn = document.getElementById('close-cv-btn');
+    // const sidebarBtn = document.getElementById('close-cv-btn');
+    const sidebarBtn = document.querySelector('#close-cv-btn > section');
 
     sidebarBtn.addEventListener('click', (e) => {
         e.preventDefault();

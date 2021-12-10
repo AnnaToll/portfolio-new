@@ -319,8 +319,11 @@ aside {
     align-items: center;
     padding: 1.55em 0;
     width: 40px;
-    cursor: pointer;
     z-index: 16;
+}
+
+#close-cv-btn > section {
+    cursor: pointer;
 }
 
 #close-cv-btn .bi-x-lg {
@@ -343,6 +346,7 @@ aside {
     font-size: 14.5px;
     color: rgb(197, 197, 197);
     font-style: normal;
+    cursor: pointer;
 }
 
 #close-cv-btn .bi-phone > p {
