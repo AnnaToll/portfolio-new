@@ -5,11 +5,11 @@ responsiveCloseOpenSidebar();
 
 addFunctionsToNavLinks();
 
-navSmallScreens();
-
 openCloseSidebar();
 
 popupSidebarMerits();
+
+copyNumberToClipboard();
 
 changeArrowBtnOnScroll();
 
@@ -26,7 +26,7 @@ function responsiveCloseOpenSidebar() {
 
 
 function createDarkBackground(zIndex, uniqueId) {
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     div.classList.add('darken-background-fullwidth');
     div.style.cssText = `z-index: ${zIndex};`;
     div.id = `dark-background-${uniqueId}`;
@@ -35,11 +35,15 @@ function createDarkBackground(zIndex, uniqueId) {
 
 
 function addFunctionsToNavLinks() {
-    let mainContentContainer = document.querySelector('#main-home-container > div');
+    const mainContentContainer = document.querySelector('#main-home-container > div');
+    const darkBackground = document.querySelector('#mobile-nav-dark-background');
+    const header = document.querySelector('header');
+    const portfolioBtn = document.getElementById('portfolio-button');
 
     addContentToMain('home');
     addContentToMain('contact');
     addContentToMain('about');
+    navSmallScreens();
 
     function addContentToMain(section) {
         let chosenBtn = document.getElementById(`${section}-button`);
@@ -49,8 +53,19 @@ function addFunctionsToNavLinks() {
             mainContentContainer.innerHTML = content.innerHTML;
 
             addRemoveSelectedClass(chosenBtn);
+
+            if (header.classList.contains('hamburger-menu-clicked')) {
+                header.classList.toggle('hamburger-menu-clicked');
+            }
         })
     }
+
+    portfolioBtn.addEventListener('click', () => {
+        if (header.classList.contains('hamburger-menu-clicked')) {
+            header.classList.toggle('hamburger-menu-clicked');
+        }
+    })
+
 
     function addRemoveSelectedClass(chosenBtn) {
         let navBtns = chosenBtn.parentElement.children;
@@ -63,13 +78,28 @@ function addFunctionsToNavLinks() {
 
         chosenBtn.classList.add('selected');
     }
+
+    function navSmallScreens() {
+    
+        const hamburgerMenuBtn = document.querySelector('nav .bi-list');
+    
+        hamburgerMenuBtn.addEventListener('click', () => {
+            header.classList.toggle('hamburger-menu-clicked');
+        })
+        
+        darkBackground.addEventListener('click', () => {
+            header.classList.toggle('hamburger-menu-clicked');
+        })
+    }
 }
+
+
 
 
 function popupSidebarMerits() {
     let meritsArr = document.querySelectorAll('#container-merits > div');
-    let hiddenElements = document.getElementById('hidden-elements-container');
-    let darkBackgroundPopup = createDarkBackground(20, 'popup');
+    const hiddenElements = document.getElementById('hidden-elements-container');
+    const darkBackgroundPopup = createDarkBackground(20, 'popup');
 
     for (let merit of meritsArr) {
      
@@ -107,8 +137,8 @@ function popupSidebarMerits() {
 
 function openCloseSidebar() {
 
-    let darkBackgroundAside = createDarkBackground(12, 'aside');
-    let sidebarBtn = document.getElementById('close-cv-btn');
+    const darkBackgroundAside = createDarkBackground(12, 'aside');
+    const sidebarBtn = document.getElementById('close-cv-btn');
 
     sidebarBtn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -137,11 +167,33 @@ function openCloseSidebar() {
 
 }
 
+function copyNumberToClipboard() {
+    const phoneNumber = '+46733929285';
+    const phoneBtn = document.querySelector('.bi-phone');
+
+/*     textToClipboard('+46733929285');
+
+    function textToClipboard (text) {
+        var dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+    } */
+
+    phoneBtn.addEventListener('click', () => {
+        phoneNumber.select();
+        document.execCommand("copy");
+    })
+
+}
+
 
 function changeArrowBtnOnScroll() {
     
     let homeTextToTop = document.querySelector('#main-home-container > div > p').getBoundingClientRect().top + window.scrollY;
-    let arrowBtn = document.querySelector('.btn-scroll-down');
+    const arrowBtn = document.querySelector('.btn-scroll-down');
 
     window.onscroll = () => {
     
@@ -154,21 +206,6 @@ function changeArrowBtnOnScroll() {
             arrowBtn.href = '#main-portfolio';
         }
     };
-}
-
-function navSmallScreens() {
-
-    let hamburgerMenuBtn = document.querySelector('nav .bi-list');
-    let header = document.querySelector('header');
-
-    hamburgerMenuBtn.addEventListener('click', () => {
-        header.classList.toggle('hamburger-menu-clicked')
-    })
-    
-    document.querySelector('#mobile-nav-dark-background').addEventListener('click', () => {
-        header.classList.toggle('hamburger-menu-clicked');
-    })
-
 }
 
 

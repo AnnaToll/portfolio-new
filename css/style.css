@@ -150,6 +150,7 @@ nav ul li a {
 
 .bi-list {
     display: none;
+    cursor: pointer;
 }
 
 
@@ -508,7 +509,7 @@ aside p {
 
 .square-img-container div:first-of-type > img:hover {
     transform: scale(1.06);
-    z-index: 50;
+    z-index: 19;
     transition: transform 250ms;
 }
 
@@ -567,6 +568,7 @@ aside p {
 .bi-arrow-left-circle-fill {
     font-size: 39px;
     color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 
 
