@@ -686,10 +686,6 @@ aside p {
         column-gap: 4.7%;
     }
 
-    .square-img-container {
-        /* width: 47.5%; */
-    }
-
     .shows-when-clicked-active,
     .merits-popup-container {
         width: 90vw;
@@ -700,9 +696,6 @@ aside p {
 
 @media screen and (max-width: 550px) {
 
-    .square-img-container {
-        /* width: 100%; */
-    }
 
     #main-portfolio {
         padding: 12vh 5.5vw;

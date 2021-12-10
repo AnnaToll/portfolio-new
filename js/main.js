@@ -180,6 +180,7 @@ function copyNumberToClipboard() {
         dummy.select();
         document.execCommand("copy");
         document.body.removeChild(dummy);
+        alert(`Copied ${dummy.value} to clipboard`);
     }
 
     phoneBtn.addEventListener('click', () => {
