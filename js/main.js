@@ -25,27 +25,20 @@ function responsiveCloseOpenSidebar() {
 }
 
 
-function createDarkBackground(zIndex, uniqueId) {
-    const div = document.createElement('div');
-    div.classList.add('darken-background-fullwidth');
-    div.style.cssText = `z-index: ${zIndex};`;
-    div.id = `dark-background-${uniqueId}`;
-    return div;
-}
-
-
 function addFunctionsToNavLinks() {
     const mainContentContainer = document.querySelector('#main-home-container > div');
-    const darkBackground = document.querySelector('#mobile-nav-dark-background');
+    // const darkBackground = document.querySelector('#mobile-nav-dark-background');
+    const darkBackgroundTest = createDarkBackground(5, 'nav');
     const header = document.querySelector('header');
     const portfolioBtn = document.getElementById('portfolio-button');
 
-    addContentToMain('home');
-    addContentToMain('contact');
-    addContentToMain('about');
+    addContentToMainClick('home');
+    addContentToMainClick('contact');
+    addContentToMainClick('about');
     navSmallScreens();
+    
 
-    function addContentToMain(section) {
+    function addContentToMainClick(section) {
         let chosenBtn = document.getElementById(`${section}-button`);
         let content = document.getElementById(`${section}-content`);
         
@@ -53,17 +46,12 @@ function addFunctionsToNavLinks() {
             mainContentContainer.innerHTML = content.innerHTML;
 
             addRemoveSelectedClass(chosenBtn);
-
-            if (header.classList.contains('hamburger-menu-clicked')) {
-                header.classList.toggle('hamburger-menu-clicked');
-            }
+            toggleMobileNavMenu();
         })
     }
 
     portfolioBtn.addEventListener('click', () => {
-        if (header.classList.contains('hamburger-menu-clicked')) {
-            header.classList.toggle('hamburger-menu-clicked');
-        }
+        toggleMobileNavMenu();
     })
 
 
@@ -79,17 +67,31 @@ function addFunctionsToNavLinks() {
         chosenBtn.classList.add('selected');
     }
 
+
     function navSmallScreens() {
     
         const hamburgerMenuBtn = document.querySelector('nav .bi-list');
     
         hamburgerMenuBtn.addEventListener('click', () => {
-            header.classList.toggle('hamburger-menu-clicked');
+            document.body.append(darkBackgroundTest);
+            darkBackgroundTest.style.cssText = 'background-color: rgba(0, 0, 0, 0.85);';
+            toggleMobileNavMenu();
         })
         
-        darkBackground.addEventListener('click', () => {
-            header.classList.toggle('hamburger-menu-clicked');
+        darkBackgroundTest.addEventListener('click', () => {
+            toggleMobileNavMenu();
         })
+    }
+
+
+    function toggleMobileNavMenu() {
+        if (header.classList.contains('hamburger-menu-clicked')) {
+            header.classList.remove('hamburger-menu-clicked');
+            $("#dark-background-nav").fadeOut(200);
+        } else {
+            header.classList.add('hamburger-menu-clicked');
+            $("#dark-background-nav").fadeIn(200);
+        }
     }
 }
 
@@ -172,6 +174,7 @@ function copyNumberToClipboard() {
 
     function textToClipboard (text) {
         var dummy = document.createElement("textarea");
+        dummy.style.cssText = 'display: none;';
         let messageContainer = document.createElement('div');
 
         document.body.appendChild(dummy);
@@ -214,6 +217,16 @@ function changeArrowBtnOnScroll() {
             arrowBtn.href = '#main-portfolio';
         }
     };
+}
+
+
+
+function createDarkBackground(zIndex, uniqueId) {
+    const div = document.createElement('div');
+    div.classList.add('darken-background-fullwidth');
+    div.style.cssText = `z-index: ${zIndex};`;
+    div.id = `dark-background-${uniqueId}`;
+    return div;
 }
 
 

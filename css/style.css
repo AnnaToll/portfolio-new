@@ -495,7 +495,6 @@ aside p {
 
 .square-img-container {
     cursor: pointer;
-    /* width: 22%; */
 }
 
 .square-img-container > div:first-of-type {
@@ -665,26 +664,14 @@ aside p {
         color: white;
     }
 
-    .hamburger-menu-clicked .bi-list {
+    .hamburger-menu-clicked .bi-list::before {
         color: white;
-        font-size: 35px;
+        font-size: 38px;
+        content: "\f62a";
     }
 
     .container-all {
         padding-right: 40px;
-    }
-
-    .hamburger-menu-clicked #mobile-nav-dark-background {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100vw;
-        padding-right: 40px;
-        background-color: rgba(0, 0, 0, 0.9);
-        z-index: 5;
-
     }
     
     #main-home-container > div {
@@ -708,6 +695,10 @@ aside p {
         letter-spacing: 1px;
     }
 
+    .merits-popup-container {
+        padding: 10vh 10vw;
+    }
+
     #main-portfolio {
         padding: 12vh 5.1vw;
     }
@@ -719,7 +710,7 @@ aside p {
 
     .shows-when-clicked-active,
     .merits-popup-container {
-        width: 90vw;
+        width: 92vw;
     }
 
   }
