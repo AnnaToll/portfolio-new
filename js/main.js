@@ -182,6 +182,7 @@ function copyNumberToClipboard() {
         document.execCommand("copy");
 
         messageContainer.innerText = `Copied ${dummy.value} to clipboard`;
+        document.body.removeChild(dummy);
         messageContainer.classList.add('copy-to-clipboard-message');
         $(".copy-to-clipboard-message").fadeIn(150);
 
@@ -189,10 +190,6 @@ function copyNumberToClipboard() {
             $(".copy-to-clipboard-message").fadeOut(200);
        }, 1700);
 
-
-
-        // document.body.removeChild(dummy);
-        // alert(`Copied ${dummy.value} to clipboard`);
     }
 
     phoneBtn.addEventListener('click', () => {
@@ -335,8 +332,7 @@ let portfolioObject = {
             this.dark_background_portfolio.addEventListener('click', function(e) {
                 if (e.target !== this) return;
                 $(this).fadeOut(300);
-            })
-        
+            })        
         }
 
     }
