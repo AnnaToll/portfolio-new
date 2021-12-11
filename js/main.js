@@ -27,7 +27,6 @@ function responsiveCloseOpenSidebar() {
 
 function addFunctionsToNavLinks() {
     const mainContentContainer = document.querySelector('#main-home-container > div');
-    // const darkBackground = document.querySelector('#mobile-nav-dark-background');
     const darkBackgroundTest = createDarkBackground(5, 'nav');
     const header = document.querySelector('header');
     const portfolioBtn = document.getElementById('portfolio-button');
@@ -74,7 +73,7 @@ function addFunctionsToNavLinks() {
     
         hamburgerMenuBtn.addEventListener('click', () => {
             document.body.append(darkBackgroundTest);
-            darkBackgroundTest.style.cssText = 'background-color: rgba(0, 0, 0, 0.85);';
+            darkBackgroundTest.style.cssText += ' background-color: rgba(0, 0, 0, 0.85);';
             toggleMobileNavMenu();
         })
         
@@ -96,6 +95,37 @@ function addFunctionsToNavLinks() {
 }
 
 
+function openCloseSidebar() {
+
+    const darkBackgroundAside = createDarkBackground(12, 'aside');
+    const sidebarBtn = document.querySelector('#close-cv-btn > section');
+
+    sidebarBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        isSidebarClicked = 'yes';
+        document.body.classList.toggle('menystangd');
+
+        addDarkBackgroundSmallScreens();
+        
+    })
+
+    function addDarkBackgroundSmallScreens() {
+
+        if (document.body.getAttribute('class') == '' && window.innerWidth <= 850) {
+            document.body.append(darkBackgroundAside);
+            $("#dark-background-aside").fadeIn(300);
+        }
+        else if (document.body.getAttribute('class') == 'menystangd' && window.innerWidth <= 850)
+            $("#dark-background-aside").fadeOut(300);
+
+        darkBackgroundAside.addEventListener('click', () => {
+            document.body.classList.add('menystangd');
+            $("#dark-background-aside").fadeOut(300);
+            
+        })
+    }
+
+}
 
 
 function popupSidebarMerits() {
@@ -136,38 +166,6 @@ function popupSidebarMerits() {
     }
 }
 
-
-function openCloseSidebar() {
-
-    const darkBackgroundAside = createDarkBackground(12, 'aside');
-    const sidebarBtn = document.querySelector('#close-cv-btn > section');
-
-    sidebarBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        isSidebarClicked = 'yes';
-        document.body.classList.toggle('menystangd');
-
-        addDarkBackgroundSmallScreens();
-        
-    })
-
-    function addDarkBackgroundSmallScreens() {
-
-        if (document.body.getAttribute('class') == '' && window.innerWidth <= 850) {
-            document.body.append(darkBackgroundAside);
-            $("#dark-background-aside").fadeIn(300);
-        }
-        else if (document.body.getAttribute('class') == 'menystangd' && window.innerWidth <= 850)
-            $("#dark-background-aside").fadeOut(300);
-
-        darkBackgroundAside.addEventListener('click', () => {
-            document.body.classList.add('menystangd');
-            $("#dark-background-aside").fadeOut(300);
-            
-        })
-    }
-
-}
 
 function copyNumberToClipboard() {
     const phoneBtn = document.querySelector('.bi-phone');

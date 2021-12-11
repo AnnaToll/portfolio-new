@@ -323,19 +323,19 @@ aside {
 
 #close-cv-btn {
     position: fixed;
+    display: block;
     top: 0;
     right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    bottom: 0;
     padding: 1.55em 0;
     width: 40px;
-    height: 100vh;
     z-index: 16;
 }
 
 #close-cv-btn > section {
+    text-align: center;
+    width: 100%;
+    height: 150px;
     cursor: pointer;
 }
 
@@ -355,10 +355,12 @@ aside {
 
 #close-cv-btn .bi-phone {
     opacity: 0;
-    position: relative;
+    position: fixed;
+    display: block;
+    bottom: 23px;
+    right: 10px;
     font-size: 14.5px;
     color: rgb(197, 197, 197);
-    font-style: normal;
     cursor: pointer;
 }
 
@@ -696,7 +698,7 @@ aside p {
     }
 
     .merits-popup-container {
-        padding: 10vh 10vw;
+        padding: 7.5vh 10vw;
     }
 
     #main-portfolio {
@@ -710,7 +712,7 @@ aside p {
 
     .shows-when-clicked-active,
     .merits-popup-container {
-        width: 92vw;
+        width: 91vw;
     }
 
   }
@@ -725,7 +727,7 @@ aside p {
 
     #portfolio-objects-container {
         grid-template-columns: 1fr;
-        row-gap: 10vh;
+        row-gap: 8.5vh;
     }
 
   }
