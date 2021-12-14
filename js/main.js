@@ -314,27 +314,46 @@ let portfolioObject = {
                 document.body.append(this.dark_background_portfolio);
                 
                 this.dark_background_portfolio.innerHTML = `
-                    <i class="bi bi-arrow-left-circle-fill"></i>
-                    <div class="shows-when-clicked-active">
-                        <i class="bi bi-x-lg"></i>
+                    <div class="portfolio-object-popup-content">
+                        <div class="arrow-left-portfolio-object">
+                            <i class="bi bi-arrow-left-circle-fill"></i>
+                        </div>
+                        <i class="bi bi-x-lg close-portfolio-btn"></i>
                         ${portfolioObject.lastElementChild.innerHTML}
+                        <div class="arrow-right-portfolio-object">
+                            <i class="bi bi-arrow-right-circle-fill"></i>
+                        </div>
                     </div>
-                    <i class="bi bi-arrow-right-circle-fill"></i>
                 `;
                 $("#dark-background-portfolio").fadeIn(300);
+
+                let popupContainer = document.getElementsByClassName('portfolio-object-popup-content')[0];
+                let arrowRight = document.querySelector('.arrow-right-portfolio-object');
+                let arrowLeft = document.querySelector('.arrow-left-portfolio-object');
+                let closeBtn = document.querySelector('.close-portfolio-btn');
+
+                console.log(closeBtn);
+
+                this.positionArrows(popupContainer, arrowRight, arrowLeft);
+                this.positionCloseBtn(popupContainer, closeBtn);
+
+                window.addEventListener('resize', () => {
+                    this.positionArrows(popupContainer, arrowRight, arrowLeft);
+                    this.positionCloseBtn(popupContainer, closeBtn);
+                })
         
-                document.querySelector('.bi-arrow-left-circle-fill').addEventListener('click', () => {
+                arrowLeft.addEventListener('click', () => {
                     if (!portfolioObject.previousElementSibling) return;
                     portfolioObject.previousElementSibling.click();
                 })
         
-                document.querySelector('.bi-arrow-right-circle-fill').addEventListener('click', () => {
+                arrowRight.addEventListener('click', () => {
                     if (!portfolioObject.nextElementSibling) return;
                     portfolioObject.nextElementSibling.click();
                 })
         
                 this.dark_background_portfolio.style.cssText += `display: grid;`;
-                document.querySelector('.shows-when-clicked-active .bi-x-lg').addEventListener('click', () => {
+                document.querySelector('.portfolio-object-popup-content .bi-x-lg').addEventListener('click', () => {
                     this.dark_background_portfolio.click();
                 })
         
@@ -346,6 +365,20 @@ let portfolioObject = {
             })        
         }
 
+    },
+
+    positionArrows : function(popupContainer, arrowRight, arrowLeft) {
+        let viewportWidth = window.innerWidth;
+        let portfolioPopupWidth = popupContainer.offsetWidth;
+        let arrowPositionCss = `calc(${(viewportWidth - portfolioPopupWidth) / 2 - 20}px + 5.4vw);`;
+        arrowRight.style.cssText = `right: ${arrowPositionCss}`;
+        arrowLeft.style.cssText = `left: ${arrowPositionCss}`;
+    },
+
+    positionCloseBtn : function(popupContainer, closeBtn) {
+        let viewportWidth = window.innerWidth;
+        let portfolioPopupWidth = popupContainer.offsetWidth;
+        closeBtn.style.cssText = `left: ${(viewportWidth - portfolioPopupWidth) / 2 + 15}px;`;
     }
 }
 

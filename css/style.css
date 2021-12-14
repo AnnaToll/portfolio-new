@@ -108,8 +108,6 @@ a:hover p {
     top: 0;
     align-items: center;
     justify-content: center;
-    grid-template-columns: auto auto auto;
-    column-gap: 30px;
     background-color: rgba(0, 0, 0, 0.4);
     min-height: 100vh;
     min-width: 100%;
@@ -160,6 +158,9 @@ nav ul li a {
     display: grid;
     height: 100vh;
     background-image: url("../img/white_wall.png");
+/*     background-image: url("../img/desk4.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; */
     place-items: center;
     padding: 10vw;
 }
@@ -458,8 +459,8 @@ aside p {
     width: 620px;
     padding: 10vh 5vw;
     top: -4vh;
-    grid-column-start: 1;
-    grid-column-end: -1;
+/*     grid-column-start: 1;
+    grid-column-end: -1; */
 }
 
 /* --------------- PORTFOLIO --------------- */
@@ -549,30 +550,39 @@ aside p {
     display: none;
 }
 
-.shows-when-clicked-active {
+.portfolio-object-popup-content {
     position: relative;
-    display: block;
     overflow: auto;
-    width: 800px;
-    max-height: 91vh;
+    height: 100%;
+    max-width: 1000px;
+    height: 94vh;
     background-color: white;
-    padding: 10vh 5vw;
+    padding: 10vh 12vw;
+    /* border-left: 1px solid grey; */
 }
 
-.shows-when-clicked-active .bi-x-lg {
-    font-size: 15px;
-    color: grey;
-    position: absolute;
-    top: 19px;
-    left: 25px;
+.arrow-left-portfolio-object,
+.arrow-right-portfolio-object {
+    position: fixed;
+    top: 48%;
+    font-size: 39px;
+    color: rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
 
-.shows-when-clicked-active h3 {
+.portfolio-object-popup-content .bi-x-lg {
+    position: fixed;
+    top: 5.5vh;
+    font-size: 15px;
+    color: grey;
+    cursor: pointer;
+}
+
+.portfolio-object-popup-content h3 {
     margin-bottom: 30px;
 }
 
-.shows-when-clicked-active img {
+.portfolio-object-popup-content img {
     margin-bottom: 28px;
     /* border: 0.5px solid rgb(221, 221, 221); */
 }
@@ -581,26 +591,19 @@ aside p {
     box-shadow: 2px 2px 5px 1px rgb(230, 230, 230);
 }
 
-.shows-when-clicked-active p {
+.portfolio-object-popup-content p {
     margin-bottom: 16px;
     font-weight: 200px;
     color: grey;
 }
 
-.shows-when-clicked-active a {
+.portfolio-object-popup-content a {
     display: block;
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 8px;
-}
-
-.bi-arrow-right-circle-fill,
-.bi-arrow-left-circle-fill {
-    font-size: 39px;
-    color: rgba(0, 0, 0, 0.3);
-    cursor: pointer;
 }
 
 
@@ -710,10 +713,19 @@ aside p {
         column-gap: 4.7%;
     }
 
-    .shows-when-clicked-active,
+    .portfolio-object-popup-content {
+        padding: 10vh 8vw;
+    }
+
+    .portfolio-object-popup-content,
     .merits-popup-container {
         width: 91vw;
     }
+
+    .arrow-left-portfolio-object,
+    .arrow-right-portfolio-object {
+        display: none;
+}
 
   }
 
