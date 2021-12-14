@@ -554,10 +554,11 @@ aside p {
     position: relative;
     overflow: auto;
     height: 100%;
-    max-width: 1000px;
+    max-width: 1050px;
     height: 94vh;
     background-color: white;
-    padding: 10vh 12vw;
+    padding: 10vh 140px;
+    margin: 0 2.5vw;
     /* border-left: 1px solid grey; */
 }
 
@@ -624,6 +625,10 @@ aside p {
     #portfolio-objects-container {
         row-gap: 5vh;
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .portfolio-object-popup-content {
+        padding: 10vh 12vw;
     }
 
   }

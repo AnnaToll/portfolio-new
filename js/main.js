@@ -370,7 +370,12 @@ let portfolioObject = {
     positionArrows : function(popupContainer, arrowRight, arrowLeft) {
         let viewportWidth = window.innerWidth;
         let portfolioPopupWidth = popupContainer.offsetWidth;
-        let arrowPositionCss = `calc(${(viewportWidth - portfolioPopupWidth) / 2 - 20}px + 5.4vw);`;
+        let arrowPositionCss = '';
+        if (window.innerWidth <= 1100) {
+            arrowPositionCss = `calc(${(viewportWidth - portfolioPopupWidth) / 2 - 20}px + 5.5vw);`;
+        } else {
+            arrowPositionCss = `calc(${(viewportWidth - portfolioPopupWidth) / 2 - 20}px + 65px);`;
+        }
         arrowRight.style.cssText = `right: ${arrowPositionCss}`;
         arrowLeft.style.cssText = `left: ${arrowPositionCss}`;
     },
