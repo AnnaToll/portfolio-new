@@ -126,7 +126,6 @@ header {
     top: 5vh;
     left: 3.2vw;
     display: grid;
-    /* grid-template: auto / minmax(90px, 7.7vw); */
     grid-template: auto / minmax(119.3px, 7.7vw);
     row-gap: 3.4vh;
     z-index: 10;
@@ -157,11 +156,8 @@ nav ul li a {
 #main-home-container {
     position: relative;
     display: grid;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url("../img/white_wall.png");
-    /* background-image: url("../img/desk3.jpg");
-    background-repeat: no-repeat;
-    background-size: cover; */
     place-items: center;
     padding: 10vw;
 }
@@ -175,16 +171,9 @@ nav ul li a {
 }
 
 #main-home-container > div {
-    /* container to the maincontent js */
     position: relative;
     top: -6vh;
     right: -3vw;
-    max-width: 510px;
-    margin-right: 30px;
-}
-
-#main-home-container > div {
-    position: relative;
     max-width: 510px;
 }
 
@@ -225,8 +214,8 @@ address > div > div > p + p {
     position: fixed;
     display: grid;
     place-content: center;
-    bottom: 4vh;
     left: 2.5vw;
+    bottom: 5vh;
     width: 60px;
     height: 60px;
     font-size: 42px;
@@ -262,12 +251,20 @@ address > div > div > p + p {
     z-index: 3;
 }
 
-@keyframes bouncing-arrow {
+/* @keyframes bouncing-arrow {
     0%   
     {bottom: 4vh;}
     50%
     {bottom: 4.4vh;}
     100% {bottom: 4vh;}
+  } */
+@keyframes bouncing-arrow {
+    0%   
+    {transform: translateY(0%);}
+    50%
+    {transform: translateY(5%);}
+    100% 
+    {transform: translateY(0%);}
   }
 
   .scrolled-down > div {
@@ -367,7 +364,7 @@ aside {
     opacity: 0;
     position: fixed;
     display: block;
-    bottom: 23px;
+    bottom: 20px;
     right: 10px;
     font-size: 14.5px;
     color: rgb(197, 197, 197);
@@ -377,7 +374,7 @@ aside {
 #headline-merits {
     position: absolute;
     top: 69px;
-    right: -9.5px;
+    right: -8px;
     text-transform: uppercase;
     letter-spacing: 0.7px;
     color: rgb(160, 160, 160);
@@ -468,17 +465,12 @@ aside p {
     width: 620px;
     padding: 10vh 5vw;
     top: -4vh;
-/*     grid-column-start: 1;
-    grid-column-end: -1; */
 }
 
 /* --------------- PORTFOLIO --------------- */
 
 
 #main-portfolio {
-    /* background-image: url("../img/white_wall.png"); */
-    /* background-color: rgb(213, 221, 219); */
-    /* background-color: rgb(196, 219, 214); */
     background-color: rgb(185, 212, 185);
     min-height: 100vh;
     padding: 8.5vh 10.5vw;
@@ -508,6 +500,18 @@ aside p {
     background-color: rgb(202, 202, 202);
 }
 
+button.selected-filter-btn-portfolio .bi-x {
+    position: relative;
+    top: 1px;
+    left: 5px;
+}
+
+.line {
+    position: relative;
+    left: 4px;
+    color: rgb(151, 151, 151);
+}
+
 .square-img-container {
     cursor: pointer;
 }
@@ -528,25 +532,6 @@ aside p {
     border: 7px solid rgb(250, 250, 250);
     transition: transform 250ms;
 }
-/* .square-img-container div:first-of-type > video {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border: 7px solid rgb(250, 250, 250);
-    transition: transform 250ms;
-}
-
-.square-img-container:hover div:first-of-type > img {
-    display: none;
-}
-
-.square-img-container:hover div:first-of-type > video {
-    display: block;
-} */
 
 .square-img-container div:first-of-type > img:hover {
     transform: scale(1.06);
@@ -571,7 +556,6 @@ aside p {
     background-color: white;
     padding: 8vh 140px;
     margin: 0 2.5vw;
-    /* border-left: 1px solid grey; */
 }
 
 .arrow-left-portfolio-object,
@@ -597,7 +581,6 @@ aside p {
 
 .portfolio-object-popup-content img {
     margin-bottom: 28px;
-    /* border: 0.5px solid rgb(221, 221, 221); */
 }
 
 .img-shadow {
@@ -630,7 +613,7 @@ aside p {
         width: 100%;
     }
 
-    #btn-scroll-down {
+    .btn-scroll-down {
         left: 6vmin;
     }
 
@@ -650,6 +633,11 @@ aside p {
 
     header {
         left: 7vmin;
+    }
+
+    .btn-scroll-down {
+        left: 6.5vmin;
+        bottom: 7vmin;
     }
 
     .bi-list {
@@ -718,7 +706,7 @@ aside p {
     }
 
     .merits-popup-container {
-        padding: 7.5vh 10vw;
+        padding: 40px;
     }
 
     #main-portfolio {
@@ -731,7 +719,7 @@ aside p {
     }
 
     .portfolio-object-popup-content {
-        padding: 10vh 8vw;
+        padding: 60px 40px;
     }
 
     .portfolio-object-popup-content,
@@ -759,5 +747,27 @@ aside p {
         row-gap: 8.5vh;
     }
 
+    .portfolio-object-popup-content {
+        height: 68vh;
+        padding: 60px 25px;
+    }
+
+    .portfolio-object-popup-content .bi-x-lg {
+        top: calc(16vh + 15px);
+    }
+
+  }
+
+
+@media screen and (max-width: 400px) {
+
+    #main-home-container {
+        padding-top: 130px;
+    }
+
+    #main-home-container > div {
+        top: 0;
+        right: 0;
+    }
   }
 

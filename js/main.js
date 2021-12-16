@@ -261,7 +261,7 @@ let portfolioObject = {
                     btnIndex = this.tags_arr.indexOf(btn.innerText);
                     this.tags_arr.splice(btnIndex, 1);
 
-                    btn.innerHTML = btn.innerHTML.replace('<i class="bi bi-x"></i>', '');
+                    btn.innerHTML = btn.innerHTML.replace(' <span class="line">I</span> <i class="bi bi-x"></i>', '');
 
                     this.addPortfolioObjects();
                     btn.classList.remove('selected-filter-btn-portfolio');
@@ -270,7 +270,7 @@ let portfolioObject = {
 
                     this.tags_arr.push(btn.innerHTML);
 
-                    btn.innerHTML += '<i class="bi bi-x"></i>';
+                    btn.innerHTML += ' <span class="line">I</span> <i class="bi bi-x"></i>';
                     
                     this.addPortfolioObjects();
                     btn.classList.add('selected-filter-btn-portfolio');
