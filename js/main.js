@@ -44,6 +44,11 @@ function addFunctionsToNavLinks() {
         chosenBtn.addEventListener('click', () => {
             mainContentContainer.innerHTML = content.innerHTML;
 
+            if (section == 'about')
+                document.getElementById('portrait-img').src = 'img/portratt6.png';
+            else
+                document.getElementById('portrait-img').src = 'img/sitting-window-2.png';
+
             addRemoveSelectedClass(chosenBtn);
             toggleMobileNavMenu();
         })

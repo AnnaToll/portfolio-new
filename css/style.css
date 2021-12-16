@@ -155,14 +155,23 @@ nav ul li a {
 /* --------------- MAIN --------------- */
 
 #main-home-container {
+    position: relative;
     display: grid;
     height: 100vh;
     background-image: url("../img/white_wall.png");
-/*     background-image: url("../img/desk4.jpg");
+    /* background-image: url("../img/desk3.jpg");
     background-repeat: no-repeat;
     background-size: cover; */
     place-items: center;
     padding: 10vw;
+}
+
+#portrait-img {
+    position: absolute;
+    object-fit: cover;
+    bottom: 0;
+    right: 0;
+    height: 100%;
 }
 
 #main-home-container > div {
@@ -467,6 +476,9 @@ aside p {
 
 
 #main-portfolio {
+    /* background-image: url("../img/white_wall.png"); */
+    /* background-color: rgb(213, 221, 219); */
+    /* background-color: rgb(196, 219, 214); */
     background-color: rgb(185, 212, 185);
     min-height: 100vh;
     padding: 8.5vh 10.5vw;
@@ -557,7 +569,7 @@ aside p {
     max-width: 1050px;
     height: 94vh;
     background-color: white;
-    padding: 10vh 140px;
+    padding: 8vh 140px;
     margin: 0 2.5vw;
     /* border-left: 1px solid grey; */
 }
