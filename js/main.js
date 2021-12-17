@@ -247,10 +247,6 @@ let portfolioObject = {
         this.portfolioObjectsClick();
     },
 
-    logs : function(toLog) {
-        console.log(toLog);
-    },
-
     filterBtnsClick : function() {
         for (let btn of this.filter.children) {
 
@@ -261,7 +257,7 @@ let portfolioObject = {
                     btnIndex = this.tags_arr.indexOf(btn.innerText);
                     this.tags_arr.splice(btnIndex, 1);
 
-                    btn.innerHTML = btn.innerHTML.replace(' <span class="line">I</span> <i class="bi bi-x"></i>', '');
+                    btn.innerHTML = btn.innerHTML.replace(' <i class="bi bi-x"></i>', '');
 
                     this.addPortfolioObjects();
                     btn.classList.remove('selected-filter-btn-portfolio');
@@ -270,7 +266,7 @@ let portfolioObject = {
 
                     this.tags_arr.push(btn.innerHTML);
 
-                    btn.innerHTML += ' <span class="line">I</span> <i class="bi bi-x"></i>';
+                    btn.innerHTML += ' <i class="bi bi-x"></i>';
                     
                     this.addPortfolioObjects();
                     btn.classList.add('selected-filter-btn-portfolio');
@@ -337,14 +333,14 @@ let portfolioObject = {
                 let arrowLeft = document.querySelector('.arrow-left-portfolio-object');
                 let closeBtn = document.querySelector('.close-portfolio-btn');
 
-                console.log(closeBtn);
-
-                this.positionArrows(popupContainer, arrowRight, arrowLeft);
-                this.positionCloseBtn(popupContainer, closeBtn);
+                arrowRight.style.cssText = `right: ${this.fixedIConsPositionSide(popupContainer, 'arrow')}`;
+                arrowLeft.style.cssText = `left: ${this.fixedIConsPositionSide(popupContainer, 'arrow')}`;
+                closeBtn.style.cssText = `left: ${this.fixedIConsPositionSide(popupContainer, 'close')}`;
 
                 window.addEventListener('resize', () => {
-                    this.positionArrows(popupContainer, arrowRight, arrowLeft);
-                    this.positionCloseBtn(popupContainer, closeBtn);
+                    arrowRight.style.cssText = `right: ${this.fixedIConsPositionSide(popupContainer, 'arrow')}`;
+                    arrowLeft.style.cssText = `left: ${this.fixedIConsPositionSide(popupContainer, 'arrow')}`;
+                    closeBtn.style.cssText = `left: ${this.fixedIConsPositionSide(popupContainer, 'close')}`;
                 })
         
                 arrowLeft.addEventListener('click', () => {
@@ -372,23 +368,18 @@ let portfolioObject = {
 
     },
 
-    positionArrows : function(popupContainer, arrowRight, arrowLeft) {
-        let viewportWidth = window.innerWidth;
-        let portfolioPopupWidth = popupContainer.offsetWidth;
-        let arrowPositionCss = '';
-        if (window.innerWidth <= 1100) {
-            arrowPositionCss = `calc(${(viewportWidth - portfolioPopupWidth) / 2 - 20}px + 5.5vw);`;
-        } else {
-            arrowPositionCss = `calc(${(viewportWidth - portfolioPopupWidth) / 2 - 20}px + 65px);`;
-        }
-        arrowRight.style.cssText = `right: ${arrowPositionCss}`;
-        arrowLeft.style.cssText = `left: ${arrowPositionCss}`;
-    },
 
-    positionCloseBtn : function(popupContainer, closeBtn) {
+    fixedIConsPositionSide : function(popupContainer, arrowOrCLose) {
         let viewportWidth = window.innerWidth;
         let portfolioPopupWidth = popupContainer.offsetWidth;
-        closeBtn.style.cssText = `left: ${(viewportWidth - portfolioPopupWidth) / 2 + 15}px;`;
+        if (arrowOrCLose == 'arrow') {
+            if (window.innerWidth <= 1100)
+                return `calc(${(viewportWidth - portfolioPopupWidth) / 2 - 20}px + 5.5vw);`;
+            else
+                return `calc(${(viewportWidth - portfolioPopupWidth) / 2 - 20}px + 65px);`;   
+        }
+        if(arrowOrCLose == 'close')
+            return `${(viewportWidth - portfolioPopupWidth) / 2 + 15}px;`;
     }
 }
 
