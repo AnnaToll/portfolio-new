@@ -516,6 +516,17 @@ button.selected-filter-btn-portfolio .bi-x {
     display: none;
 }
 
+.portfolio-object-popup-content ul {
+    position: relative;
+    top: -3px;
+    left: 25px;
+    margin-bottom: 25px;
+}
+
+.portfolio-object-popup-content li {
+    list-style: disc outside none;
+}
+
 .tags {
     display: none;
 }
