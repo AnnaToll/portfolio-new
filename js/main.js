@@ -279,18 +279,18 @@ let portfolioObject = {
     addPortfolioObjects : function() {
         
         this.container.innerHTML = '';
-
+        
         for (let portfolioObject of this.containerCopy.children) {
-
+            
             let tagsInObjectString = portfolioObject.lastElementChild.lastElementChild.innerText.replace(', ', ',').trim();
             let tagsInObjectArr = tagsInObjectString.split(',');
-
+            
             for (let tag of this.tags_arr) {
                 if (tagsInObjectArr.includes(tag)) {
                     this.container.innerHTML += `
-                    <section class="square-img-container">
-                     ${portfolioObject.innerHTML}
-                    </section>
+                        <section class="square-img-container">
+                            ${portfolioObject.innerHTML}
+                        </section>
                     `;
                     break;
                 }
