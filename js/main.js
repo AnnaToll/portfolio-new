@@ -138,37 +138,37 @@ function popupSidebarMerits() {
     const hiddenElements = document.getElementById('hidden-elements-container');
     const darkBackgroundPopup = createDarkBackground(20, 'popup');
 
-    for (let merit of meritsArr) {
+    // for (let merit of meritsArr) {
      
-        merit.addEventListener('click', (e) => {
+    //     merit.addEventListener('click', (e) => {
             
-            e.preventDefault();
-            document.body.append(darkBackgroundPopup);
-            merit.classList.toggle('merits-active');
-            addContentMeritsPopup();
+    //         e.preventDefault();
+    //         document.body.append(darkBackgroundPopup);
+    //         merit.classList.toggle('merits-active');
+    //         addContentMeritsPopup();
     
-        })
+    //     })
         
-        function addContentMeritsPopup() {
+    //     function addContentMeritsPopup() {
 
-            for (let element of hiddenElements.children) {
-                if (merit.children[2].firstElementChild.innerText.toLowerCase().trim() == element.firstElementChild.innerText.toLowerCase().trim()) {
-                    darkBackgroundPopup.innerHTML = `
-                        <div class="merits-popup-container">
-                            ${element.innerHTML}
-                        </div>
-                    `;
-                    $("#dark-background-popup").fadeToggle(300);
-                    darkBackgroundPopup.style.cssText += `display: grid;`;
-                }
-            }
-        }
+    //         for (let element of hiddenElements.children) {
+    //             if (merit.children[2].firstElementChild.innerText.toLowerCase().trim() == element.firstElementChild.innerText.toLowerCase().trim()) {
+    //                 darkBackgroundPopup.innerHTML = `
+    //                     <div class="merits-popup-container">
+    //                         ${element.innerHTML}
+    //                     </div>
+    //                 `;
+    //                 $("#dark-background-popup").fadeToggle(300);
+    //                 darkBackgroundPopup.style.cssText += `display: grid;`;
+    //             }
+    //         }
+    //     }
         
-        darkBackgroundPopup.addEventListener('click', function() {
-            $(this).fadeOut(300);
-            merit.classList.remove('merits-active');
-        }) 
-    }
+    //     darkBackgroundPopup.addEventListener('click', function() {
+    //         $(this).fadeOut(300);
+    //         merit.classList.remove('merits-active');
+    //     }) 
+    // }
 }
 
 
