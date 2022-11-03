@@ -239,41 +239,55 @@ let portfolioObject = {
     container : document.getElementById('portfolio-objects-container'),
     containerCopy : '',
     filter: document.getElementById('filtratePortfolioBtnContainer'),
+    chosen_tags_arr : [],
     tags_arr : [],
 
     setUp : function() {
         this.containerCopy = this.container.cloneNode(true);
+        this.addTagsToArr();
         this.filterBtnsClick();
         this.portfolioObjectsClick();
+    },
+
+    addTagsToArr : function() {
+        for (let btn of this.filter.children) {
+            this.tags_arr.push({ 
+                name: btn.innerHTML,
+                active: false
+            });
+        }
     },
 
     filterBtnsClick : function() {
         for (let btn of this.filter.children) {
 
             btn.addEventListener('click', () => {
-
-                if (btn.innerHTML.includes('bi-x')) {
-
-                    btnIndex = this.tags_arr.indexOf(btn.innerText);
-                    this.tags_arr.splice(btnIndex, 1);
-
-                    btn.innerHTML = btn.innerHTML.replace(' <i class="bi bi-x"></i>', '');
-
-                    this.addPortfolioObjects();
-                    btn.classList.remove('selected-filter-btn-portfolio');
-
-                } else {
-
-                    this.tags_arr.push(btn.innerHTML);
-
-                    btn.innerHTML += ' <i class="bi bi-x"></i>';
-                    
-                    this.addPortfolioObjects();
-                    btn.classList.add('selected-filter-btn-portfolio');
-                }
+                this.setSelectedTag(btn);
             })
 
         }
+    },
+
+    setSelectedTag : function(btn) {
+
+        let name = btn.innerText.trim();
+
+        for (let tag of this.tags_arr) {
+            if (tag.name === name) {
+                tag.active = !tag.active
+                if (tag.active) {
+                    btn.classList.add('selected-filter-btn-portfolio');
+                    btn.innerHTML += ' <i class="bi bi-x"></i>';
+                } else {
+                    btn.classList.remove('selected-filter-btn-portfolio');
+                    btn.innerHTML = btn.innerHTML.replace(' <i class="bi bi-x"></i>', '');
+                }
+
+            }
+        }
+        
+        this.addPortfolioObjects();
+
     },
 
     addPortfolioObjects : function() {
@@ -282,17 +296,19 @@ let portfolioObject = {
         
         for (let portfolioObject of this.containerCopy.children) {
             
-            let tagsInObjectString = portfolioObject.lastElementChild.lastElementChild.innerText.replace(', ', ',').trim();
-            let tagsInObjectArr = tagsInObjectString.split(',');
+            let tagsInObjectString = portfolioObject.lastElementChild.lastElementChild.innerText.trim();
+            let tagsInObjectArr = tagsInObjectString.split(',');            
             
             for (let tag of this.tags_arr) {
-                if (tagsInObjectArr.includes(tag)) {
-                    this.container.innerHTML += `
-                        <section class="square-img-container">
-                            ${portfolioObject.innerHTML}
-                        </section>
-                    `;
-                    break;
+                if (tagsInObjectArr.includes(tag.name)) {
+                    if (tag.active) {
+                        this.container.innerHTML += `
+                            <section class="square-img-container">
+                                ${portfolioObject.innerHTML}
+                            </section>
+                        `;
+                        break;
+                    }
                 }
 
             }
